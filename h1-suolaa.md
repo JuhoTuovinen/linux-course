@@ -52,17 +52,17 @@ Loin onnistuneesti käyttäjän terote01 kaikille hallittaville laitteille komen
 
 Loin kansion komennolla ”sudo mkdir -p /srv/salt/hello”. Kansioon loin ”init.sls”- nimisen YAML-tiedoston komennolla ”sudoedit /srv/salt/hello/init.sls” jonne tallensin seuraavan komennon: 
 
-![Kuva](/kuva9.png)
+![Kuva](/kuva10.png)
 
 Tämä ylläpitää tiedostoa ja varmistaa, että sen sisältö on halutunlainen.
 
 Ajoin komennon ”sudo salt '*' state.apply hello”, joka lataa äsken tallentamani hello-tilan laitteille.
 
-![Kuva](/kuva10.png)
+![Kuva](/kuva9.png)
 
 Ajoin komennon ”sudo salt '*' state.apply hello^C”, josta sain virheilmoituksen. Sen jälkeen ajoin komennon ”sudoedit /srv/salt/top.sls”, jolla loin tiedoston. Lisäsin sinne kuvan mukaiset komennot.
 
-![Kuva](/kuva11.png)
+![Kuva](/kuva13.png)
 
 Sen jälkeen ajoin komennon ”sudo salt '*' state.apply”, joka suorittaa aikaisemmin määritetyn tilan laitteille. Sain virheilmoituksen, enkä saanut vikaa selvitettyä.
 
