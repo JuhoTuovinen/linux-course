@@ -70,8 +70,8 @@ Sen jälkeen ajoin komennon ”sudo salt '*' state.apply”, joka suorittaa aika
 
 ## Testailu 
 
-  ls
-  foo bar
+    ls
+    foo bar
 
 ## Lähteet
 
