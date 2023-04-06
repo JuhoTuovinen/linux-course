@@ -68,6 +68,11 @@ Sen jälkeen ajoin komennon ”sudo salt '*' state.apply”, joka suorittaa aika
 
 ![Kuva](/kuva12.png)
 
+## Testailu 
+
+  ls
+  foo bar
+
 ## Lähteet
 
 Karvinen, Tero: Salt Vagrant - automatically provision one master and two slaves 
