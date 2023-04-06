@@ -1,4 +1,4 @@
-# h1 Salt
+# Salt
 
 Tässä raportissa kerron kuinka asennan Vagrant- ja salt-ohjelmistot, ja testaan niiden toimivuutta tietokoneellani. Kyseisen toimenpiteen suoritan vuoden 2015 Apple MacBook:lla, jossa käyttöjärjestelmänä macOs Monterey versio 12.6.4. Käytössä on Ram muistia 16GB ja levytilaa vapaana 39,71 GB.
 
@@ -68,10 +68,6 @@ Sen jälkeen ajoin komennon ”sudo salt '*' state.apply”, joka suorittaa aika
 
 ![Kuva](/kuva12.png)
 
-## Testailu 
-
-    ls
-    foo bar
 
 ## Lähteet
 
