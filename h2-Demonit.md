@@ -37,6 +37,7 @@ Kuinka vaihtaa SSH-palvelinportti käyttäen Salt-tilaa:
   ![Kuva](/images/kuva15.png)
   
   
+  
   Testasin yhteyttä master- koneeseen portin 20 kautta komennolla:
 
     ssh -p 20 vagrant@192.168.12.3
