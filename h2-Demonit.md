@@ -53,7 +53,7 @@ Kuinka vaihtaa SSH-palvelinportti käyttäen Salt-tilaa:
 
 
 
-(Raportti jatkuu)
+(Raportti kesken)
 
 
 ## Lähteet
