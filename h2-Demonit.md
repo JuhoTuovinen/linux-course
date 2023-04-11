@@ -22,4 +22,4 @@ Aloitinasentamalla molempiin ssh komennolla
     sudo salt ’*’ state.single pkg.installed ssh
  
  
- ![Kuva](/images/kuva13.png)
+ ![Kuva](/images/kuva14.png)
