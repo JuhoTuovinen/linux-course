@@ -27,7 +27,8 @@ Kuinka vaihtaa SSH-palvelinportti käyttäen Salt-tilaa:
  
  Asennus onnistui.
  
- ![Kuva](/images/kuva14.png)
+ 
+ <img src="/images/kuva14.png" alt="testi" title="testi" width="70%" height="70%">
  
  (Kello 20:05) Seuraavaksi muokkasin sshd-konfiguraatiotiedostoa /etc -kansiossa ja annoin toiseksi kuunneltavaksi portiksi portin 20. Muokkasin tiedostoa komennolla:
 
