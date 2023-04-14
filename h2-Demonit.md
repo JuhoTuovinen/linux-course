@@ -200,14 +200,25 @@ Ajoin virheilmoituksessa mainitut komennot.
 Ongelma tulee kolmatta porttia lisätessä. Muokkasin tiedostoa niin, että vain portti 20 on auki. Käynnistin ssh:n uudelleen ja testasin yhteyttä master-koneeseen portin 20 kautta. Yhteys onnistui. Kun portteja on konfiguraatio tiedostossa 3, silloin kyseinen virheilmoitus esiintyy.
 
 
-Muutin sshd-konfiguraatiotiedostoa niin, että vainportit 22 ja 27 ovat käytössä. Uudelleen käynnistin demonin ja asensin tilan hallittaville koneille. Kuitenkaan asetus ei päivittynyt ja en saanut ssh-yhteyttä portin 27 kautta koneeseen "t001". Yhteys portin 27 kautta onnistui kuitenkin "tmaster" koneelle. Ongelma on selvittämättä, mutta voi johtua siitä, että asetuksia ei muutettu /salt-kansiossa olevassa sshd_config- tiedostossa.
+Muutin sshd-konfiguraatiotiedostoa niin, että vainportit 22 ja 27 ovat käytössä. Uudelleen käynnistin demonin ja asensin tilan hallittaville koneille. Kuitenkaan asetus ei päivittynyt ja en saanut ssh-yhteyttä portin 27 kautta koneeseen "t001". Yhteys portin 27 kautta onnistui kuitenkin "tmaster" koneelle. Ongelma voi johtua siitä, että asetuksia ei muutettu /salt-kansiossa olevassa sshd_config- tiedostossa.
 
 
 <img src="/images/kuva33.png" alt="testi" title="testi" width="50%" height="50%">
 
 
-(Raportti jatkuu)
+(Kello 21:05)
+Lisäsin porti 27 sshd_config kansioon polussa /srv/salt. Käynnistin demonin uudelleen ja asensin tilan hallittaville koneille. 
 
+
+<img src="/images/kuva34.png" alt="testi" title="testi" width="50%" height="50%">
+
+Asennus onnistui ja kuvasta näkee, että portti 27 on lisätty. Testasin vielä ssh-yhteyttä portin kautta t001-koneelle.
+
+    ssh -p 27 vagrant@192.168.12.100
+    
+<img src="/images/kuva35.png" alt="testi" title="testi" width="50%" height="50%">  
+
+Vatsukseksi saatiin "Permission denied", mistä voidaan päätellä, että portti on auki.
 
 ## Lähteet
 
