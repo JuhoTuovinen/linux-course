@@ -72,7 +72,7 @@ Tuhosin aikaisemmat virtuaalikoneet ja loin uudet. Aloitin kokeilemalla SSH-yhte
 
  Vaihdoin käyttäjän salasanan onnistuneesti.
  
-    passwd vagrant
+    sudo passwd vagrant
 
 Seuraavaksi navigoin SSH-asetustiedostoon ja laitoin aseutkseksi "PasswordAuthentication yes"
 
@@ -187,7 +187,7 @@ Käynnistin demonin uudelleen ja ajoin tilan koneille.
 
      ssh -p 27 vagrant@192.168.12.100
      
-Sain vastaukseksi "Connection refused" eli asennus ei onnistunut. Testasin auttaako portin muutos, ja vaihdoin portin 27 tilalle portin 25. Yritin käynnistää demonia uudelleen, mutta sain virhe ilmoituksen.
+Sain vastaukseksi "Connection refused" eli asennus ei onnistunut. Testasin auttaako portin muutos, ja vaihdoin portin 27 tilalle portin 25. Yritin käynnistää demonia uudelleen, mutta sain virheilmoituksen.
 
 <img src="/images/kuva30.png" alt="testi" title="testi" width="50%" height="50%">
 
@@ -218,7 +218,14 @@ Asennus onnistui ja kuvasta näkee, että portti 27 on lisätty. Testasin vielä
     
 <img src="/images/kuva35.png" alt="testi" title="testi" width="50%" height="50%">  
 
-Vatsukseksi saatiin "Permission denied", mistä voidaan päätellä, että portti on auki.
+Vastaukseksi saatiin "Permission denied", mistä voidaan päätellä, että portti on auki.
+
+
+Lauantaina 15.4.2023 klo 14.20 jatkoin harjoitusta.
+
+t001 -koneella sallin kirjautumisen salasanalla muokkaamalla sshd_config- tiedostoa kuten aikaisemmin. Testasin SSH-yhteyttä portin 27 kautta uudelleen. Testi onnistui ja yhteys sallittiin.
+
+<img src="/images/kuva36.png" alt="testi" title="testi" width="50%" height="50%">
 
 ## Lähteet
 
