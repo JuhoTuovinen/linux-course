@@ -227,6 +227,8 @@ t001 -koneella sallin kirjautumisen salasanalla muokkaamalla sshd_config- tiedos
 
 <img src="/images/kuva36.png" alt="testi" title="testi" width="50%" height="50%">
 
+Juho Tuovinen
+
 ## Lähteet
 
 
