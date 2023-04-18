@@ -1,7 +1,7 @@
 # Git
 Juho Tuovinen
 
-Tässä raportissa demonstroin Gitin käyttöä GitHub-palvelun kanssa. Aion luoda uuden varaston GitHubiin ja lisätä, muokata ja poistaa sieltä tiedostoja käyttäen Git:iä. Lähden toteuttamaan tehtävää ohjeiden mukaisesti https://terokarvinen.com/2023/palvelinten-hallinta-2023-kevat/#h3-git.
+Tässä raportissa demonstroin Gitin käyttöä GitHub-palvelun kanssa. Aion luoda uuden varaston GitHubiin ja lisätä, muokata ja poistaa sieltä tiedostoja käyttäen Git:iä. Lähden toteuttamaan tehtävää ohjeiden mukaisesti (Karvinen, Tero: Oppitunnit 2023-04-13, Infra as Code course, h3-Git, https://terokarvinen.com/2023/palvelinten-hallinta-2023-kevat/#h3-git).
 
 Tietokoneen speksit, jolla suoritan toimenpiteen:
 - Apple MacBook 2015
@@ -161,3 +161,10 @@ Sekä lokissä näkyy, että minulla on käytössä toinen sähköpostiosoite se
 
 
 <img src="/images/kuva49.png" alt="testi" title="testi" width="70%" height="70%">
+
+
+## Lähteet
+
+
+Karvinen, Tero: Oppitunnit 2023-04-13, Infra as Code course, h3-Git (https://terokarvinen.com/2023/palvelinten-hallinta-2023-kevat/#h3-git)
+
