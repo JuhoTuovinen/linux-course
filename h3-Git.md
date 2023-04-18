@@ -89,6 +89,8 @@ Seuraavaksi tarkastelen lokin toimintaa. Lisäsin tekstiä testi.txt- itedostoon
 
 Lokista näkee, että nimeni ja sähköpostiosoitteeni on oikein. Lisäksi lokista huomataan, että olen luonut uuden tiedoston ja sinne tekstiä.
 
+"Commit + kirjain-numerosarja" kertoo muutoksen yksilöllisen ID:n. "Author" kertoo kuka muutoksen on tehnyt. "Date" kertoo kellonajan, jolloin muutos on tehty. Sen jälkeen näkyy kommentti, jossa kerrotaan lyhyesti mitä muutoksia on tehty. Vihreällä tai punaisella tekstillä, jossa + tai - näyttää, mitä on lisätty tai poistettu.
+
 ## Se toinen järjestelmä
 
 Ti 18.4.2023 Kello 10:30
@@ -135,3 +137,25 @@ Tarkistetaan vielä, että loki näyttää oikealta ja, että nimi ja sähköpos
 
 <img src="/images/kuva46.png" alt="testi" title="testi" width="70%" height="70%">
 
+
+## Yhteistyötä
+
+Seuraavaksi aion testata varaston jakamista toiselle käyttäjälle. Loin itselleni toisen käyttäjän GitHubiin. Minulla oli aikaisemmin tähän tehtävään luotu varasto, jota aion käyttää tässä tehtävässä.
+
+Navigoin GitHub-varastossa Settings->Collaborators ja lisäsin luomain käyttäjän. Lisäämällä toinen käyttäjä, lähetetään kutsu ensin käyttäjälle, jonka pitää se hyväksyä. Hyväksyin sen toisella käyttäjälläni ja varasto näkyy nyt toiselle käyttäjälle.
+
+<img src="/images/kuva47.png" alt="testi" title="testi" width="70%" height="70%">
+
+Kirjauduin t001 koneelle. asensin gitin, loin avainparin, liitin sen githubiin. kopioidaan varasto. loin uuden tiedoston t001.txt
+
+
+Tunnistauduin luomalla käyttäjän. ja lähetin luomani tiedoston.
+
+Lisäämäni tiedsoto näkyi GitHubin käyttöliittymässä.
+
+<img src="/images/kuva48.png" alt="testi" title="testi" width="70%" height="70%">
+
+Sekä lokissä näkyy, että minulla on käytössä toinen sähköpostiosoite sekä käyttänänimen perässä numer 2, jotta erotetaan, että tämä käyttäjä oli äsken luomani.
+
+
+<img src="/images/kuva49.png" alt="testi" title="testi" width="70%" height="70%">
