@@ -137,6 +137,8 @@ Tarkistetaan vielä, että loki näyttää oikealta ja, että nimi ja sähköpos
 
 <img src="/images/kuva46.png" alt="testi" title="testi" width="70%" height="70%">
 
+Tässä huomataan, että en tunnistautunut/luonot käyttäjää niin käyttäjänimi ja sähköposti eivät ollet samat kuin aikaisemmin.
+
 
 ## Yhteistyötä
 
