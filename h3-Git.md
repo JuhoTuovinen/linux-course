@@ -1,4 +1,5 @@
 # Git
+Juho Tuovinen
 
 Tässä raportissa demonstroin Gitin käyttöä GitHub-palvelun kanssa. Aion luoda uuden varaston GitHubiin ja lisätä, muokata ja poistaa sieltä tiedostoja käyttäen Git:iä. Lähden toteuttamaan tehtävää ohjeiden mukaisesti https://terokarvinen.com/2023/palvelinten-hallinta-2023-kevat/#h3-git.
 
