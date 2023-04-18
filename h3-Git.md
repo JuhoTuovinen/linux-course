@@ -142,20 +142,19 @@ Tarkistetaan vielä, että loki näyttää oikealta ja, että nimi ja sähköpos
 
 Seuraavaksi aion testata varaston jakamista toiselle käyttäjälle. Loin itselleni toisen käyttäjän GitHubiin. Minulla oli aikaisemmin tähän tehtävään luotu varasto, jota aion käyttää tässä tehtävässä.
 
-Navigoin GitHub-varastossa Settings->Collaborators ja lisäsin luomain käyttäjän. Lisäämällä toinen käyttäjä, lähetetään kutsu ensin käyttäjälle, jonka pitää se hyväksyä. Hyväksyin sen toisella käyttäjälläni ja varasto näkyy nyt toiselle käyttäjälle.
+Navigoin GitHub-varastossa Settings->Collaborators ja lisäsin luomain käyttäjän. Lisäämällä toinen käyttäjä, lähetetään kutsu ensin käyttäjälle, jonka pitää se hyväksyä. Hyväksyin kutsun toisella käyttäjälläni, ja varasto näkyy nyt tälle toiselle käyttäjälle.
 
 <img src="/images/kuva47.png" alt="testi" title="testi" width="70%" height="70%">
 
-Kirjauduin t001 koneelle. asensin gitin, loin avainparin, liitin sen githubiin. kopioidaan varasto. loin uuden tiedoston t001.txt
+Kirjauduin t001-koneelle. Asensin Gitin, loin avainparin ja liitin sen githubiin, kuten aikaisemmin harjoituksessa. Kopioin varaston käyttäjälle ja loin uuden tiedoston "t001.txt".
 
+Tunnistauduin luomalla käyttäjän ja lähetin luomani tiedoston Gitin avulla.
 
-Tunnistauduin luomalla käyttäjän. ja lähetin luomani tiedoston.
-
-Lisäämäni tiedsoto näkyi GitHubin käyttöliittymässä.
+Nyt uudella käyttäjällä lisäämäni tiedsoto näkyy GitHubin käyttöliittymässä.
 
 <img src="/images/kuva48.png" alt="testi" title="testi" width="70%" height="70%">
 
-Sekä lokissä näkyy, että minulla on käytössä toinen sähköpostiosoite sekä käyttänänimen perässä numer 2, jotta erotetaan, että tämä käyttäjä oli äsken luomani.
+Sekä lokissä näkyy, että minulla on käytössä toinen sähköpostiosoite sekä käyttäjänimen perässä numero 2, jotta erotetaan, että tämä käyttäjä oli äsken luomani.
 
 
 <img src="/images/kuva49.png" alt="testi" title="testi" width="70%" height="70%">
