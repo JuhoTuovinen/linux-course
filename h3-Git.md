@@ -15,13 +15,16 @@ Ohjelmistot
 
 ## Online
 
-(Ma 17.4. Kello 12:10)
+Ma 17.4. Kello 12:10
+
 Aloitin luomalla GitHubiin varaston nimeltä "summer", jonne loin tiedostot README.md ja GNU General Public License 3.
 
 <img src="/images/kuva37.png" alt="testi" title="testi" width="70%" height="70%">
 
 ## Dolly
-(12:15) 
+
+12:15
+
 Asensin tmaster-virtuaalikoneelleni Gitin. 
    
     sudo apt-get install git
@@ -46,7 +49,8 @@ Sen jälkeen latasin luomani "summer"-varaston tmaster-virtuaalikoneelle kopioim
 
 
 
-(14:50) 
+14:50
+
 Seuraavaksi testaan Gitin toiminnan lisäämällä tekstitiedoston "testi.txt" varastoon ja katson ilmestyykö se Githubin käyttöliittymään aikaisemmin luomani tiedostojen README.md ja GNU General Public License 3 rinnalle.
 
 
@@ -74,7 +78,7 @@ Seuraavaksi testaan toimiiko muutosten peruuttaminen. Kirjoitin aikaisemmin luot
 
 ## Tukki
 
-(22:45) 
+22:45
 
 Seuraavaksi tarkastelen lokin toimintaa. Lisäsin tekstiä testi.txt- itedostoon ja sen jälkeen tarkastelin lokia komennolla:
 
@@ -87,15 +91,43 @@ Lokista näkee, että nimeni ja sähköpostiosoitteeni on oikein. Lisäksi lokis
 
 ## Se toinen järjestelmä
 
-(Ti 18.4.2023 Kello 10:30)
+Ti 18.4.2023 Kello 10:30
+
 Koska äsken suorittamani tehtävät ovat suoritettu virtuaalikoneen Debian-käyttöjärjestelmää käyttäen, aion testata Gitin käyttöä omalla Apple-koneellani, jossa macOs-käyttöliittymä.
 
 
-Asennan Gitin.
+Asennetaan Git Macbookille.
 
      brew install git
      
-Ajoin samat komennot kuin aikaisemmin suorittaessa. Loin avainparin ja liitin julkisen avaimen GitHubiin kuten aikaisemmin. Latasin aikaisemmin luomani varaston koneelleni. Lisäsin uuden tiedoston "file.txt", jonne lisäsin tekstiä. Suoritin komennon "git add . && git commit; git pull && git push", jonka jälkeen tiedosto pitäisi näkyä GitHubissa. Tiedosto saatiin onnistuneesti lisättyä käyttäen macOs-käyttöjärjestelmää.
+Sen jälkeen tunnistaudutaan, ja se tapahtuu samoilla komennoilla kun aikaisemmin. Lisätään vain lainausmerkkien sisään omat tiedot.
+
+    git config --global user.email "you@example.com"
+    git config --global user.name "Your Name"
+    
+Luodaan avainpari samalla komennolla kuin Debianissa. Ja "Enter"-näppäimellä eteenpäin ellei halua lisätä salalausetta.
+
+    ssh-keygen
+    
+Sen jälkeen navigoidaan tiedostoon, jossa julkinen avain sijaitsee. Tiedoston polku lukee avainparin luonnin yhteydessä. Yleensä täällä:
+
+    cat ~/.ssh/id_rsa.pub
+    
+Kopioidaan avain ja liitetään se GitHubiin Settings -> SSH and GPG keys -> New SSH key.
+
+Kopioidaan GitHubista varaston SSH-osoite ja lisätään se käyttäjälle.
+
+    git clone <varaston osoite>
+    
+Sen jälkeen voi lisätä esim. tiedoston.
+
+    touch file.txt
+    
+ Tämä luo tyhjän tekstitiedoston. Sen jälkeen tiedosto lisätään GitHub-varastoon Gitin avulla.
+ 
+     git add . && git commit; git pull && git push
+     
+ Lisätään kommentti mitä ollan muutettu ja sitten voidaankin katsoa onko muutos tullut voimaan.
 
 <img src="/images/kuva45.png" alt="testi" title="testi" width="70%" height="70%">
 
