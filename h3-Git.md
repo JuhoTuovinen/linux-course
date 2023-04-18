@@ -131,5 +131,7 @@ Sen jälkeen voi lisätä esim. tiedoston.
 
 <img src="/images/kuva45.png" alt="testi" title="testi" width="70%" height="70%">
 
+Tarkistetaan vielä, että loki näyttää oikealta ja, että nimi ja sähköpostiosoite on oikein.
+
 <img src="/images/kuva46.png" alt="testi" title="testi" width="70%" height="70%">
 
