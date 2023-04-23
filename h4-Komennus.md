@@ -67,7 +67,7 @@ Kopioin myös skriptin /usr/local/bin polusta samaan kansioon. Tarkistan viel, e
 <img src="/images/kuva54.png" alt="testi" title="testi" width="70%" height="70%">
 <img src="/images/kuva55.png" alt="testi" title="testi" width="70%" height="70%">
  
- ## Pyhton
+ ## Python
  
  Loin hello.py nimisen tiedoston jonne lisäsin koodia joka tulostaa ajettaess "hello wordl"
  
@@ -105,6 +105,8 @@ kello 21.10. menin t001 koneellee testatakseni skriptiä ja sain seuraavanlaisen
 
 Tarkistin vielä, että skripti kuitenkin löytyy eli se oli tullut orjakoneille perille, mutta ei aja sitä oikein.
 
+<img src="/images/kuva61.png" alt="testi" title="testi" width="70%" height="70%">
+
 liässin shebang linen poolkujen /usr/local/bin/hello.py ja /srv/salt/python-script/hello.py pythonskripteihin
 
 https://stackoverflow.com/questions/6908143/should-i-put-shebang-in-python-scripts-and-what-form-should-it-take
@@ -113,7 +115,7 @@ https://stackoverflow.com/questions/6908143/should-i-put-shebang-in-python-scrip
     
 lähetän tilan uudelleen orjakoneille ja testaan uudestaan. ei onnistunut
 
-<img src="/images/kuva61.png" alt="testi" title="testi" width="70%" height="70%">
+<img src="/images/kuva62.png" alt="testi" title="testi" width="70%" height="70%">
 
 johtuu todennäköisesti siitä, että polku on merkattu väärin.
 
@@ -121,7 +123,7 @@ Sain ohjelman toimimaan orjakoneella, ja vika oli siinä, että minulla oli pä�
 
     #!/usr/bin/env python3
 
-<img src="/images/kuva62.png" alt="testi" title="testi" width="70%" height="70%">
+<img src="/images/kuva63.png" alt="testi" title="testi" width="70%" height="70%">
 
 # yhden binäärin ohjelma
 
@@ -141,13 +143,13 @@ avasin tar tiedoston
     
 testasin, että micro toimii ja sen jälkeen kopioin sen polkuun /usr/local/bin 
 
-<img src="/images/kuva63.png" alt="testi" title="testi" width="70%" height="70%">
+<img src="/images/kuva64.png" alt="testi" title="testi" width="70%" height="70%">
 
 Sen jälkee micro aukeaa komennolla "micro"
 
 Loin /srv/salt polkuun uuden kansion "micro". Kopioin mciron ja tarkistin oikeudet.
 
-<img src="/images/kuva64.png" alt="testi" title="testi" width="70%" height="70%">
+<img src="/images/kuva65.png" alt="testi" title="testi" width="70%" height="70%">
 
 Loin init.sls tiedoston
 
@@ -163,7 +165,7 @@ testaan t001 orjakoneella
 
     sudo salt "t001" state.apply micro
     
-<img src="/images/kuva64.png" alt="testi" title="testi" width="70%" height="70%">
+<img src="/images/kuva66.png" alt="testi" title="testi" width="70%" height="70%">
 
 
 ssh yhteys t001. komennolla "micro" tekstieditori micro aukeaa onnistuneesti.
