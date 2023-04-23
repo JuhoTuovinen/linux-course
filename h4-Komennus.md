@@ -93,14 +93,15 @@ Kopioin myös skriptin /usr/local/bin polusta samaan kansioon. Tarkistan viel, e
 ```
 
 Tarkistin vielä että oikeudet pysyivät.
+<img src="/images/kuva58.png" alt="testi" title="testi" width="70%" height="70%">
 
 Ajoin tilan orjakoneille
 
-<img src="/images/kuva58.png" alt="testi" title="testi" width="70%" height="70%">
+<img src="/images/kuva59.png" alt="testi" title="testi" width="70%" height="70%">
 
 kello 21.10. menin t001 koneellee testatakseni skriptiä ja sain seuraavanlaisen virheilmoituksen.
 
-<img src="/images/kuva59.png" alt="testi" title="testi" width="70%" height="70%">
+<img src="/images/kuva60.png" alt="testi" title="testi" width="70%" height="70%">
 
 Tarkistin vielä, että skripti kuitenkin löytyy eli se oli tullut orjakoneille perille, mutta ei aja sitä oikein.
 
@@ -112,7 +113,7 @@ https://stackoverflow.com/questions/6908143/should-i-put-shebang-in-python-scrip
     
 lähetän tilan uudelleen orjakoneille ja testaan uudestaan. ei onnistunut
 
-<img src="/images/kuva60.png" alt="testi" title="testi" width="70%" height="70%">
+<img src="/images/kuva61.png" alt="testi" title="testi" width="70%" height="70%">
 
 johtuu todennäköisesti siitä, että polku on merkattu väärin.
 
@@ -120,7 +121,7 @@ Sain ohjelman toimimaan orjakoneella, ja vika oli siinä, että minulla oli pä�
 
     #!/usr/bin/env python3
 
-<img src="/images/kuva61.png" alt="testi" title="testi" width="70%" height="70%">
+<img src="/images/kuva62.png" alt="testi" title="testi" width="70%" height="70%">
 
 # yhden binäärin ohjelma
 
@@ -140,13 +141,13 @@ avasin tar tiedoston
     
 testasin, että micro toimii ja sen jälkeen kopioin sen polkuun /usr/local/bin 
 
-<img src="/images/kuva62.png" alt="testi" title="testi" width="70%" height="70%">
+<img src="/images/kuva63.png" alt="testi" title="testi" width="70%" height="70%">
 
 Sen jälkee micro aukeaa komennolla "micro"
 
 Loin /srv/salt polkuun uuden kansion "micro". Kopioin mciron ja tarkistin oikeudet.
 
-<img src="/images/kuva63.png" alt="testi" title="testi" width="70%" height="70%">
+<img src="/images/kuva64.png" alt="testi" title="testi" width="70%" height="70%">
 
 Loin init.sls tiedoston
 
