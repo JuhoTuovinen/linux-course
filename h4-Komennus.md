@@ -37,11 +37,11 @@ Kopioin skriptin polkuun /usr/locla/bin koska se on kaikille. Annoin kaikille k�
 
     sudo chmod ugo+x skripti
 
-<img src="/images/kuva39.png" alt="testi" title="testi" width="70%" height="70%">
+<img src="/images/kuva51.png" alt="testi" title="testi" width="70%" height="70%">
 
 Ajoin vileä testiksi skiprtin.
 
-<img src="/images/kuva39.png" alt="testi" title="testi" width="70%" height="70%">
+<img src="/images/kuva51.png" alt="testi" title="testi" width="70%" height="70%">
 
 
 Loin kanasiot salt ja script polkuun /srv/salt/script, jonne lisään init.sls tiedoston
@@ -56,7 +56,7 @@ Kopioin myös skriptin /usr/local/bin polusta samaan kansioon. Tarkistan viel, e
 
     ls -l
     
-<img src="/images/kuva39.png" alt="testi" title="testi" width="70%" height="70%">
+<img src="/images/kuva53.png" alt="testi" title="testi" width="70%" height="70%">
  
  Lähetin tilan orjakoneille
  
@@ -64,7 +64,7 @@ Kopioin myös skriptin /usr/local/bin polusta samaan kansioon. Tarkistan viel, e
      
  Kirjauduin ssh yhteydelä orjakoneelle, jolle lähetin tilan ja annoin käskyn "skripti", jolloin skripti ajettiin onnistuneesti ja kone tulosti sanan shine.
  
-<img src="/images/kuva39.png" alt="testi" title="testi" width="70%" height="70%">
+<img src="/images/kuva54.png" alt="testi" title="testi" width="70%" height="70%">
  
  ## Pyhton
  
@@ -74,13 +74,13 @@ Kopioin myös skriptin /usr/local/bin polusta samaan kansioon. Tarkistan viel, e
      
  Ajoin testiksi skriptin ja sain tulosteen "hello world" eli skrpiti toimi.
  
-<img src="/images/kuva39.png" alt="testi" title="testi" width="70%" height="70%">
+<img src="/images/kuva55.png" alt="testi" title="testi" width="70%" height="70%">
  
  Siirsin skriptin /usr/local/bin kansioon, niinkuin aikaisemmassaa vaiheessa ja annoin oikeudet kaikille käyttäjille ajaa skriptin.
  
      sudo chmod ugo+x hello.py
      
- <img src="/images/kuva39.png" alt="testi" title="testi" width="70%" height="70%">
+ <img src="/images/kuva56.png" alt="testi" title="testi" width="70%" height="70%">
  
  Loin uuden kansion "python-script" polkuun /srv/salt
  
@@ -95,11 +95,11 @@ Tarkistin vielä että oikeudet pysyivät.
 
 Ajoin tilan orjakoneille
 
-<img src="/images/kuva39.png" alt="testi" title="testi" width="70%" height="70%">
+<img src="/images/kuva57.png" alt="testi" title="testi" width="70%" height="70%">
 
 kello 21.10. menin t001 koneellee testatakseni skriptiä ja sain seuraavanlaisen virheilmoituksen.
 
-<img src="/images/kuva39.png" alt="testi" title="testi" width="70%" height="70%">
+<img src="/images/kuva58.png" alt="testi" title="testi" width="70%" height="70%">
 
 Tarkistin vielä, että skripti kuitenkin löytyy eli se oli tullut orjakoneille perille, mutta ei aja sitä oikein.
 
@@ -111,7 +111,7 @@ https://stackoverflow.com/questions/6908143/should-i-put-shebang-in-python-scrip
     
 lähetän tilan uudelleen orjakoneille ja testaan uudestaan. ei onnistunut
 
-<img src="/images/kuva39.png" alt="testi" title="testi" width="70%" height="70%">
+<img src="/images/kuva59.png" alt="testi" title="testi" width="70%" height="70%">
 
 johtuu todennäköisesti siitä, että polku on merkattu väärin.
 
@@ -119,7 +119,7 @@ Sain ohjelman toimimaan orjakoneella, ja vika oli siinä, että minulla oli pä�
 
     #!/usr/bin/env python3
 
-<img src="/images/kuva39.png" alt="testi" title="testi" width="70%" height="70%">
+<img src="/images/kuva60.png" alt="testi" title="testi" width="70%" height="70%">
 
 # yhden binäärin ohjelma
 
@@ -139,13 +139,13 @@ avasin tar tiedoston
     
 testasin, että micro toimii ja sen jälkeen kopioin sen polkuun /usr/local/bin 
 
-<img src="/images/kuva39.png" alt="testi" title="testi" width="70%" height="70%">
+<img src="/images/kuva61.png" alt="testi" title="testi" width="70%" height="70%">
 
 Sen jälkee micro aukeaa komennolla "micro"
 
 Loin /srv/salt polkuun uuden kansion "micro". Kopioin mciron ja tarkistin oikeudet.
 
-<img src="/images/kuva39.png" alt="testi" title="testi" width="70%" height="70%">
+<img src="/images/kuva62.png" alt="testi" title="testi" width="70%" height="70%">
 
 Loin init.sls tiedoston
 
@@ -161,12 +161,12 @@ testaan t001 orjakoneella
 
     sudo salt "t001" state.apply micro
     
-<img src="/images/kuva39.png" alt="testi" title="testi" width="70%" height="70%">
+<img src="/images/kuva63.png" alt="testi" title="testi" width="70%" height="70%">
 
 
 ssh yhteys t001. komennolla "micro" tekstieditori micro aukeaa onnistuneesti.
 
-<img src="/images/kuva39.png" alt="testi" title="testi" width="70%" height="70%">
+<img src="/images/kuva67.png" alt="testi" title="testi" width="70%" height="70%">
 
 
 ## Lähteet
