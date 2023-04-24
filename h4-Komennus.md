@@ -145,7 +145,7 @@ Testasin, että Micro toimii, ja sen jälkeen kopioin sen polkuun /usr/local/bin
 
 Sen jälkee micro aukeaa komennolla "micro".
 
-Loin /srv/salt polkuun uuden kansion "micro". Kopioin mciron ja tarkistin oikeudet.
+Loin /srv/salt polkuun uuden kansion "micro". Kopioin micron ja tarkistin oikeudet.
 
 <img src="/images/kuva65.png" alt="testi" title="testi" width="70%" height="70%">
 
