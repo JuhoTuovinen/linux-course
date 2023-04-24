@@ -110,9 +110,7 @@ Tarkistin vielä, että skripti kuitenkin löytyy, eli se oli tullut orjakoneill
 
 <img src="/images/kuva61.png" alt="testi" title="testi" width="70%" height="70%">
 
-Lisäsin shebang-rivin poolkujen /usr/local/bin/hello.py ja /srv/salt/python-script/hello.py python-skripteihin.
-
-https://stackoverflow.com/questions/6908143/should-i-put-shebang-in-python-scripts-and-what-form-should-it-take
+Lisäsin shebang-rivin polkujen /usr/local/bin/hello.py ja /srv/salt/python-script/hello.py python-skripteihin (Stack Overflow, Should I put #! (shebang) in Python scripts, and what form should it take? (https://stackoverflow.com/questions/6908143/should-i-put-shebang-in-python-scripts-and-what-form-should-it-take)).
 
     #!/usr/bin/env python 
     
@@ -121,7 +119,7 @@ Lähetän tilan uudelleen orjakoneille ja testaan uudestaan. Ei toiminut.
 <img src="/images/kuva62.png" alt="testi" title="testi" width="70%" height="70%">
 
 
-Sain ohjelman toimimaan orjakoneella. Vika oli siinä, että minulla oli pääritetty vamhempi versio python-ohjelmasta ajamaan komento, eikä uusin python3. Liäsin shebang-riviin "python3", jolloin skripti toimi
+Sain ohjelman toimimaan orjakoneella. Vika oli siinä, että minulla oli määritetty vanhempi versio python-ohjelmasta ajamaan komento, eikä uusin python3. Lisäsin shebang-riviin "python3", jolloin skripti toimi oikein.
 
     #!/usr/bin/env python3
 
