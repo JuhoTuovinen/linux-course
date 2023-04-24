@@ -73,7 +73,7 @@ Kopioin myös skriptin /usr/local/bin polusta /srv/salt/script -kansioon. Tarkis
  
      print("hello world")
      
- Ajoin testiksi skriptin, ja sain tulosteen "hello world", eli skrpiti toimi.
+ Ajoin testiksi skriptin, ja sain tulosteen "hello world", eli skripti toimi.
  
 <img src="/images/kuva56.png" alt="testi" title="testi" width="70%" height="70%">
  
