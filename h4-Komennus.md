@@ -168,7 +168,7 @@ Testaan tilaa t001-orjakoneella.
 <img src="/images/kuva66.png" alt="testi" title="testi" width="70%" height="70%">
 
 
-Otin SSH-yhteyden t001-koneeseen. Komennolla "micro" tekstieditori micro aukeaa onnistuneesti. Asennuksen automatiosointi onnistui ja yhden binäärin ohjelma on saatu onnistuneesti asennettua orjakoneelle.
+Otin SSH-yhteyden t001-koneeseen. Komennolla "micro" tekstieditori Micro aukeaa onnistuneesti. Asennuksen automatiosointi onnistui ja yhden binäärin ohjelma on saatu onnistuneesti asennettua orjakoneelle.
 
 <img src="/images/kuva67.png" alt="testi" title="testi" width="70%" height="70%">
 
@@ -178,9 +178,9 @@ Otin SSH-yhteyden t001-koneeseen. Komennolla "micro" tekstieditori micro aukeaa 
 
 Karvinen, Tero: Oppitunnit 2023-04-20, palvelinten hallinta, h4-Komennot (https://terokarvinen.com/2023/palvelinten-hallinta-2023-kevat/#h4-komennus)
 
-https://stackoverflow.com/questions/6908143/should-i-put-shebang-in-python-scripts-and-what-form-should-it-take
+Stack Overflow, Should I put #! (shebang) in Python scripts, and what form should it take? (https://stackoverflow.com/questions/6908143/should-i-put-shebang-in-python-scripts-and-what-form-should-it-take)
 
-https://github.com/zyedidia/micro/releases/tag/v2.0.11
+GitHub, zyedidia, micro (https://github.com/zyedidia/micro/releases/tag/v2.0.11)
 
 
 
