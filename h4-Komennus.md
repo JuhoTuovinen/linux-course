@@ -17,7 +17,7 @@ Ohjelmistot
 
 ## hello.sh
 
-Sununtai 23.4.2023 kello 20:20
+Sunnuntai 23.4.2023 kello 20:20
 
 Loin bash-skriptin nano-tekstieditorilla, joka tulostaa ajettaessa tekstin "shine".
 
