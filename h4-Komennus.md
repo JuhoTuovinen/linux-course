@@ -67,7 +67,7 @@ Kopioin myös skriptin /usr/local/bin polusta /srv/salt/script -kansioon. Tarkis
 <img src="/images/kuva54.png" alt="testi" title="testi" width="70%" height="70%">
 <img src="/images/kuva55.png" alt="testi" title="testi" width="70%" height="70%">
  
- ## Python
+ ## Python-skripti
  
  Loin "hello.py" nimisen tiedoston Nano-tekstieditorilla, jonne lisäsin python-koodia, joka tulostaa ajettaessa: "hello world". 
  
