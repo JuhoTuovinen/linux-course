@@ -51,7 +51,7 @@ Testaan Saltin toimivuutta paikallisesti ilman verkkoa.
     
 Yhteydenotto itseen onnistui.
 
-<img src="/images/kuva70.png" alt="testi" title="testi" width="60%" height="60%">
+<img src="/images/kuva70.png" alt="testi" title="testi" width="70%" height="70%">
 
 ## Hei ikkuna!
 
