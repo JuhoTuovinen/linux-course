@@ -27,19 +27,19 @@ Kuinka ohjata Salt:ia Windowsilla.
 
 (Lähde: Karvinen, Tero: Control Windows with Salt https://terokarvinen.com/2018/control-windows-with-salt/)
 
-## Saltin asentaminen macos
+## Saltin asentaminen
 
 Tiistai 2.5.2023 Kello 16.30
 
-Koska Windows-virtuaalikoneen asentaminen VIrtualBoxissa ei onnistunut, päätin asentaa saltin Apple Macbookilleni. Syy, miksi virtuaalikone ei lähde käyntiin on toistaiseksi tuntematon.
+Koska Windows-virtuaalikoneen asentaminen VirtualBoxissa ei onnistunut, päätin asentaa saltin Apple Macbookilleni. Syy, miksi virtuaalikone ei lähde käyntiin on toistaiseksi tuntematon.
 
 Latasin tiedoston "salt-latest-py3-x86_64.pkg" osoitteesta https://repo.saltproject.io/osx/.
 
-<img src="/images/kuva68.png" alt="testi" title="testi" width="40%" height="40%">
+<img src="/images/kuva68.png" alt="testi" title="testi" width="60%" height="60%">
 
 Salt asennettiin onnistuneesti.
 
-<img src="/images/kuva69.png" alt="testi" title="testi" width="40%" height="40%">
+<img src="/images/kuva69.png" alt="testi" title="testi" width="60%" height="60%">
 
 ## Ei voi kalastaa
 
@@ -51,7 +51,7 @@ Testaan Saltin toimivuutta paikallisesti ilman verkkoa.
     
 Yhteydenotto itseen onnistui.
 
-<img src="/images/kuva70.png" alt="testi" title="testi" width="40%" height="40%">
+<img src="/images/kuva70.png" alt="testi" title="testi" width="60%" height="60%">
 
 ## Hei ikkuna!
 
@@ -68,8 +68,8 @@ Loin uuden tiedoston "hello" käyttämällä "file.managed"-komentoa.
 Tiedoston luominen onnistui.
 
 
-<img src="/images/kuva71.png" alt="testi" title="testi" width="40%" height="40%">
-<img src="/images/kuva72.png" alt="testi" title="testi" width="40%" height="40%">
+<img src="/images/kuva71.png" alt="testi" title="testi" width="60%" height="60%">
+<img src="/images/kuva72.png" alt="testi" title="testi" width="60%" height="60%">
 
 
 ## Installed
@@ -82,7 +82,7 @@ Latasin Micro-tekstieditorin kotihakemistoon osoitteesta https://micro-editor.gi
     
 Micro asentui ja toimi. 
 
-<img src="/images/kuva73.png" alt="testi" title="testi" width="40%" height="40%">
+<img src="/images/kuva73.png" alt="testi" title="testi" width="60%" height="60%">
 
 Kopioin Micro polkuun /usr/local/bin.
 
@@ -90,7 +90,7 @@ Nyt Micro avautuu komennolla "micro".
 
 Seuraavaksi tarkoitukseni on luoda tila /srv/salt- kansioon, mutta sellaista ei ole, enkä voi sellaista luoda.
 
-<img src="/images/kuva74.png" alt="testi" title="testi" width="40%" height="40%">
+<img src="/images/kuva74.png" alt="testi" title="testi" width="60%" height="60%">
 
 
 Raportti tulee jatkumaan.
