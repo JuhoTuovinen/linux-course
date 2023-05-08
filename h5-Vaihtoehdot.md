@@ -15,13 +15,13 @@ Tietokoneen speksit, jolla suoritan toimenpiteen:
 Kuinka ohjata Salt:ia Windowsilla.
 
 - ladasessa Salt, master-koneella version täytyy olla sama tai uudempi kuin orjakoneilla
-- uusimmat versiot toimivat parheiten
-- hyväksy orjat
-- testaa, että orjat vastaavat
+- uusimmassa versiossa toimivat parheiten
+- hyväksy orjat <code> sudo salt-key -A </code>
+- testaa, että orjat vastaavat <code> sudo salt '*' test.ping </code>
 - ota käyttöön Salt Windows ohjelmistojen varastot
-- asenna jokin ohjelmlistopaketti (ensin paikallisesti)
+- asenna jokin ohjelmlistopaketti (ensin paikallisesti) <code> salt-call --local </code>
 - ohjaa Saltia Windowsin PowerShellissä
-- koska Windowsilla ei ole monipuolista paketinhallintajärjestelmää, on hyvä ladata esim. Chocolatey
+- koska Windowsilla ei ole monipuolista paketinhallintajärjestelmää, on hyvä ladata esim. Chocolatey <code> sudo salt ug pkg.install chocolatey </code>
 - Chocolateylla on yli 5000 asennettavaa pakettia
 - lisää Salt minioni Windows serverille
 - voit antaa minioneille rooleja
