@@ -2,7 +2,9 @@
 
 Juho Tuovinen
 
-Tässä raportissa kerron, kuinka asennan Saltin Apple-tietokoneeseeni ja kuinka asennan ohjelman käyttämällä Salt:ia. Lähden suorittamaan tehtävää ohjeen mukaisesti (Tero Karvinen, Infra as Code course, h5-Vaihtoehdot, https://terokarvinen.com/2023/palvelinten-hallinta-2023-kevat/#h5-vaihtoehdot)
+Tässä raportissa kerron, kuinka asennan Saltin Apple-tietokoneeseeni ja kuinka asennan ohjelman käyttämällä Salt:ia. Lähden suorittamaan tehtävää ohjeen mukaisesti (Tero Karvinen, Infra as Code course, h5-Vaihtoehdot, https://terokarvinen.com/2023/palvelinten-hallinta-2023-kevat/#h5-vaihtoehdot).
+
+HUOM! Tehtävää muokattu viimeiseksi PÄIVÄMÄÄRÄ. Aloitin tehtävän teon MacOS-käyttöjärjestelmällä, koska Windows-virtuaalikoneen asennuksessa oli ongelmia. Virtuaali koneen asennus kuitenkin myöhemmin onnistui, joten aloitin tehtävän alusta Windowsilla. Windowsilla tehdyt harjoitukset löytyvät alempaa.
 
 Tietokoneen speksit, jolla suoritan toimenpiteen:
 - Apple MacBook 2015
@@ -96,6 +98,19 @@ Seuraavaksi tarkoitukseni on luoda tila /srv/salt- kansioon, mutta sellaista ei 
 
 
 Raportti tulee jatkumaan.
+
+# Windowsin asennus
+
+Asensin Windows iso filen lähteestä https://www.microsoft.com/fi-fi/software-download/windows10ISO. Se toimi
+
+## Asenna Salt Windowsille
+
+
+
+
+
+
+
 
 
 
