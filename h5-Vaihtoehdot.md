@@ -14,15 +14,17 @@ Tietokoneen speksit, jolla suoritan toimenpiteen:
 
 Kuinka ohjata Salt:ia Windowsilla.
 
-- lataa Salt, master-koneella version täytyy olla sama tai uudempi kuin orjakoneilla
+- ladasessa Salt, master-koneella version täytyy olla sama tai uudempi kuin orjakoneilla
+- uusimmat versiot toimivat parheiten
 - hyväksy orjat
 - testaa, että orjat vastaavat
 - ota käyttöön Salt Windows ohjelmistojen varastot
-- asenna jokin ohjelmlistopaketti
+- asenna jokin ohjelmlistopaketti (ensin paikallisesti)
 - ohjaa Saltia Windowsin PowerShellissä
+- koska Windowsilla ei ole monipuolista paketinhallintajärjestelmää, on hyvä ladata esim. Chocolatey
 - Chocolateylla on yli 5000 asennettavaa pakettia
 - lisää Salt minioni Windows serverille
-- anna minioneille rooleja
+- voit antaa minioneille rooleja
 
 
 (Lähde: Karvinen, Tero: Control Windows with Salt https://terokarvinen.com/2018/control-windows-with-salt/)
@@ -94,6 +96,10 @@ Seuraavaksi tarkoitukseni on luoda tila /srv/salt- kansioon, mutta sellaista ei 
 
 
 Raportti tulee jatkumaan.
+
+
+
+
 
 
 ## Lähteet
