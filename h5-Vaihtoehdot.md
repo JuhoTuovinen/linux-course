@@ -126,6 +126,8 @@ testi ping. yhteys saatiin
 
 ## Ei voi kalastaa
 
+käytin apuna danielin raporttia https://github.com/danielz95/palvelintenhallinta-2023/blob/main/h5-Salt%20Windows.md ja https://github.com/RAV64/palvelinten-hallinta/blob/main/h5.md
+
 käytin saltia paikallisesti windowsilla komennolla
 
     salt-call --local test.ping
@@ -134,9 +136,74 @@ käytin saltia paikallisesti windowsilla komennolla
     
 ## Hei ikkuna
 
+loink kansion win10
+
+    salt % sudo mkdir -p /etc/salt/win10
+    
+loin tekstitiedoston kansioon
+
+    sudo touch hello.txt
+   
+luon init.sls
+    
+    sudo pico init.lsl
+    
+ lisäsin komennon joka asentaa tiedoston kansioon documents
+
+```
+C:/Users/Public/Documents/hello.txt:
+  file.managed:
+    - source: "salt://win10/hello.txt"
+```
+ei toiminut eikä saa luotua /Srv/salt kansiota
+
+    mkdir: /srv: Read-only file system
+    
+kokeilin muokata konfiguraatiokansiota /etc/salt/minion  
+ ``` 
+file_roots:
+  base:
+    - source: "/etc/salt/win10"
+```
+
+koska 
+ 
+     sudo salt Minion1 state.apply win10 -l debug
+     
+lisäsin master konfiguraatiotedoston
+
+```
+
+file_roots:
+  base:
+    - /etc/salt
+    
+ ```   
+sekä lisäsin konfiguraatiotedoston kotihakemistoon
+
+    sudo pico ~/.saltrc
+    
+ja teksti
+
+```
+
+master: localhost
+```
+virheilmoitukset saatiin pois, mutta tiedosto ei asentunut
 
 
+## Installed
 
+tmaster kone ip 192.168.12.3 lisäsin sen salt minion, asensin sen uudeleen windowsille
+
+hyväksytin uuden minion koneen
+
+    sudo salt-key -A
+    
+loin kansion
+
+    sudo mkdir -p /srv/salt/win
+    
 
 
 
@@ -150,4 +217,12 @@ Micro, https://micro-editor.github.io/
 Salt Project Package Repo, https://repo.saltproject.io/osx/
 
 Get a Windows 11 development environment, https://developer.microsoft.com/en-us/windows/downloads/virtual-machines/
+
+https://docs.saltproject.io/salt/install-guide/en/latest/topics/install-by-operating-system/windows.html
+
+https://docs.saltproject.io/salt/install-guide/en/latest/topics/install-by-operating-system/macos.html
+
+https://github.com/danielz95/palvelintenhallinta-2023/blob/main/h5-Salt%20Windows.md
+
+https://github.com/RAV64/palvelinten-hallinta/blob/main/h5.md
 
