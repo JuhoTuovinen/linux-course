@@ -105,11 +105,34 @@ Asensin Windows iso filen lähteestä https://www.microsoft.com/fi-fi/software-d
 
 ## Asenna Salt Windowsille
 
+8.5.2023 kello 21
+latasin salt minionin windowsille https://repo.saltproject.io/salt/py3/windows/latest/Salt-Minion-3006.1-Py3-AMD64-Setup.exe
 
+aloitin asentamisen. tarkistin masterila mäkki ip ja annoin sen asennusvaiheessa.
 
+katsoin salt sivulta ohjeita https://docs.saltproject.io/salt/install-guide/en/latest/topics/install-by-operating-system/macos.html
 
+käytin alla olevaa komentoa jonka tilalle laitoin minionin ip osoitteen ja master koneen ip osoitteen
 
+    sudo salt-config -i yourminionname -m yoursaltmaster
 
+sen jälkeen hyväksytin avaimet 
+
+    sudo salt-key -A 
+    
+testi ping. yhteys saatiin
+
+    sudo salt minion1 test.ping
+
+## Ei voi kalastaa
+
+käytin saltia paikallisesti windowsilla komennolla
+
+    salt-call --local test.ping
+    
+    salt-call --local state.single cmd.run whoami
+    
+## Hei ikkuna
 
 
 
