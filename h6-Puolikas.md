@@ -9,3 +9,15 @@ Tietokoneen speksit, jolla suoritan toimenpiteen:
 - Ram -muistia 16GB
 - levytilaa vapaana 57,97 GB.
 
+```
+all:
+  pkg.installed:
+    - names:
+      - apache2
+      - micro
+      - gimp
+      - libreoffice
+      - ssh
+      - firefox-esr
+      - vlc
+```
