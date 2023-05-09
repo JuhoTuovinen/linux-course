@@ -149,7 +149,7 @@ Molemmat komennot onnistuivat ja salt toimi paikallisesti .
     
 ## Hei ikkuna
 
-Loink kansion "win10" polkuun /etc/salt master-konellani.
+Loin kansion "win10" polkuun /etc/salt master-konellani.
 
     salt % sudo mkdir -p /etc/salt/win10
     
@@ -176,7 +176,7 @@ Ajoin tilan, mutta se ei oitminut.
 <img src="/images/kuva79.png" alt="testi" title="testi" width="60%" height="60%">
     
 
-N myöskään saa luotua /srv/salt kansiota master-koneelleni. Saan alla olevan virheilmoituksen.
+En myöskään saa luotua /srv/salt kansiota master-koneelleni. Saan alla olevan virheilmoituksen.
 
     mkdir: /srv: Read-only file system
     
@@ -210,10 +210,20 @@ Päätin kokeilla toista lähestymistapaa ja tilan sijaan päädyin komentoon:
 
 ## Installed
 
-Ensiksi tarkistin ettei vlc ole asennettu
+Ensiksi tarkistin ettei vlc ole asennettu.
 
-
+<img src="/images/kuva81.png" alt="testi" title="testi" width="60%" height="60%">
     
+Yritin asentaa ensin paikllisesti. Muokkasin minionin konfiguraatiokansiota ja lisäsin sinne oletuspoluksi C:/USers/juso/Desktop/salt.
+
+<img src="/images/kuva82.png" alt="testi" title="testi" width="60%" height="60%">
+
+Sen jälkeen loin salt-kansioon kansion "vlc" ja loin sinne init.sls tilatiedoston. Kokeilin erilaisilla variaatilla asentaa VLC-mediasoitin, mutta ei onnistunut.
+
+<img src="/images/kuva83.png" alt="testi" title="testi" width="60%" height="60%">
+<img src="/images/kuva84.png" alt="testi" title="testi" width="60%" height="60%">
+<img src="/images/kuva85.png" alt="testi" title="testi" width="60%" height="60%">
+<img src="/images/kuva86.png" alt="testi" title="testi" width="60%" height="60%">
 
 
 
