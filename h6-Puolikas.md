@@ -2,7 +2,7 @@
 
 Juho Tuovinen
 
-Tämän miniprojektin aiheena on rakentaa "heti valmis" työpöytä Linux -käyttöjärjestelmälle. Saltin avulla asennetaan kasa hyödyllisiä ohjelmia kuten Micro, Libre Office, SSH, Apache2, Gimp, Firefox ja VLC. Versio on alpha ja tulee jatkumaan. 
+Tämän miniprojektin aiheena on rakentaa "heti valmis" työpöytä Linux -käyttöjärjestelmälle. Ohjelmat ovat hyödyllisiä, mutta niitä ei ole valmiiksi asennettu. Saltin avulla voidaan asentaa kasa hyödyllisiä ohjelmia kuten Micro, Libre Office, SSH, Apache2, Gimp, Firefox ja VLC. Versio on alpha ja tulee jatkumaan. 
 
 # Saltin asentaminen
 (Ohjeet Saltin asentamiseen)
