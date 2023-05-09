@@ -40,9 +40,12 @@ Tilan voi ajaa koneille komennolla:
  Asennuksessa voi kestää useita minuutteja (5-10 min), kun ohjelmat asennetaan. Asennuksen jälkeen ohjelmat löytyvät koneilta, joille ne on asennettu.
  
  Asennettu SSH
- <img src="/images/kuva89.png" alt="testi" title="testi" width="40%" height="40%">
+ 
+ <img src="/images/kuva89.png" alt="testi" title="testi" width="60%" height="60%">
+ 
  Asennettu Micro
- <img src="/images/kuva90.png" alt="testi" title="testi" width="40%" height="40%">
+ 
+ <img src="/images/kuva90.png" alt="testi" title="testi" width="60%" height="60%">
 
 ## Lähteet
 
