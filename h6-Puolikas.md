@@ -1,16 +1,19 @@
 # Puolikas
 
-Tämän miniprojektin aiheena on rakentaa "heti valmis" työpöytä. Saltin avulla asennetaan kasa hyödyllisiä ohjelmia (kuten Micro, Libre Office, SSH, Apache2, Gimp, Firefox ja VLC) ja konfiguroidaan ne.
+Tämän miniprojektin aiheena on rakentaa "heti valmis" työpöytä. Saltin avulla asennetaan kasa hyödyllisiä ohjelmia (kuten Micro, Libre Office, SSH, Apache2, Gimp, Firefox ja VLC). Versio on alpha. 
 
+Luo kansio "ohjelmat" kohteeseen /srv/salt.
 
-Tietokoneen speksit, jolla suoritan toimenpiteen:
-- Apple MacBook 2015
-- macOs Monterey versio 12.6.4 
-- Ram -muistia 16GB
-- levytilaa vapaana 57,97 GB.
+    sudo mkdir -p /srv/salt/ohjelmat
+
+Lisää sls-tiedosto kohteeseen.
+
+    sudo nano /srv/salt/ohjelmat/init.sls
+
+Lisää alla oleva YAML-teksti.
 
 ```
-all:
+ohjelmat:
   pkg.installed:
     - names:
       - apache2
@@ -22,14 +25,11 @@ all:
       - vlc
 ```
 
-```
-base:
-  '*':
-    - micro
-    - apache2
-    - gimp
-    - libre-office
-    - ssh
-    - firefox
-    - vlc
-```
+## Lähteet
+
+
+Karvinen, Tero: Oppitunnit 06/03/2023-04/05/2023, palvelinten hallinta, h6-Puolikas, https://terokarvinen.com/2023/palvelinten-hallinta-2023-kevat/#h6-puolikas)
+
+How to install Mozilla FireFox on Debian 11 Bullseye, https://linux.how2shout.com/how-to-install-mozilla-firefox-on-debian-11-bullseye/
+
+
