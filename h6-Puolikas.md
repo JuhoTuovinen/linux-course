@@ -1,6 +1,6 @@
 # Puolikas
 
-Tämän miniprojektin aiheena on rakentaa "heti valmis" työpöytä. Saltin avulla asennetaan kasa hyödyllisiä ohjelmia (kuten Micro, Libre Office, SSH, Apache2, Gimp, Firefox ja VLC). Versio on alpha. 
+Tämän miniprojektin aiheena on rakentaa "heti valmis" työpöytä. Saltin avulla asennetaan kasa hyödyllisiä ohjelmia (kuten Micro, Libre Office, SSH, Apache2, Gimp, Firefox ja VLC). Versio on alpha ja tulee jatkumaan. 
 
 Luo kansio "ohjelmat" kohteeseen /srv/salt.
 
