@@ -4,7 +4,7 @@ Juho Tuovinen
 
 Tässä raportissa kerron, kuinka asennan Saltin Apple-tietokoneeseeni ja kuinka asennan ohjelman käyttämällä Salt:ia. Lähden suorittamaan tehtävää ohjeen mukaisesti (Tero Karvinen, Infra as Code course, h5-Vaihtoehdot, https://terokarvinen.com/2023/palvelinten-hallinta-2023-kevat/#h5-vaihtoehdot).
 
-HUOM! Tehtävää muokattu viimeiseksi PÄIVÄMÄÄRÄ. Aloitin tehtävän teon MacOS-käyttöjärjestelmällä, koska Windows-virtuaalikoneen asennuksessa oli ongelmia. Virtuaali koneen asennus kuitenkin myöhemmin onnistui, joten aloitin tehtävän alusta Windowsilla. Windowsilla tehdyt harjoitukset löytyvät alempaa.
+HUOM! Tehtävää muokattu viimeiseksi 09.05.2023. Aloitin tehtävän teon MacOS-käyttöjärjestelmällä, koska Windows-virtuaalikoneen asennuksessa oli ongelmia. Virtuaali koneen asennus kuitenkin myöhemmin onnistui, joten aloitin tehtävän alusta Windowsilla. Windowsilla tehdyt harjoitukset löytyvät alempaa.
 
 Tietokoneen speksit, jolla suoritan toimenpiteen:
 - Apple MacBook 2015
