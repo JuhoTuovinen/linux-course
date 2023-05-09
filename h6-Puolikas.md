@@ -2,7 +2,12 @@
 
 Juho Tuovinen
 
-Tämän miniprojektin aiheena on rakentaa "heti valmis" työpöytä. Saltin avulla asennetaan kasa hyödyllisiä ohjelmia (kuten Micro, Libre Office, SSH, Apache2, Gimp, Firefox ja VLC). Versio on alpha ja tulee jatkumaan. 
+Tämän miniprojektin aiheena on rakentaa "heti valmis" työpöytä Linux -käyttöjärjestelmälle. Saltin avulla asennetaan kasa hyödyllisiä ohjelmia kuten Micro, Libre Office, SSH, Apache2, Gimp, Firefox ja VLC. Versio on alpha ja tulee jatkumaan. 
+
+#Saltin asentaminen
+(Ohjeet Saltin asentamiseen)
+
+##Työpöydän asentaminen 
 
 Luo kansio "ohjelmat" kohteeseen /srv/salt.
 
@@ -26,6 +31,18 @@ ohjelmat:
       - firefox-esr
       - vlc
 ```
+
+Tilan voi ajaa koneille komennolla:
+
+    sudo salt '*' state.apply ohjelmat
+    
+    
+ Asennuksessa voi kestää useita minuutteja (5-10 min), kun ohjelmat asennetaan. Asennuksen jälkeen ohjelmat löytyvät koneilta, joille ne on asennettu.
+ 
+ Asennettu SSH
+ <img src="/images/kuva89.png" alt="testi" title="testi" width="40%" height="40%">
+ Asennettu Micro
+ <img src="/images/kuva90.png" alt="testi" title="testi" width="40%" height="40%">
 
 ## Lähteet
 
