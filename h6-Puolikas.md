@@ -21,3 +21,15 @@ all:
       - firefox-esr
       - vlc
 ```
+
+```
+base:
+  '*':
+    - micro
+    - apache2
+    - gimp
+    - libre-office
+    - ssh
+    - firefox
+    - vlc
+```
