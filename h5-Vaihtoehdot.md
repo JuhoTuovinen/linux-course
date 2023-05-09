@@ -192,17 +192,19 @@ master: localhost
 virheilmoitukset saatiin pois, mutta tiedosto ei asentunut
 
 
+Tiistai 09.05.2023 Kello 12.25
+
+Päätin kokeilla toista lähestymistapaa ja tilan sijaan päädyin komentoon:
+
+    sudo salt '*' state.single file.managed C:/Users/Public/Documents/hello.txt
+    
+ Komento suorittaa saman asian kuin kaikaisemmin kokeillun tilan toiminto. Komento luo hello.txt tiedoston hallittavan koneen polkuun C:/Users/Public/Documents/. 
+
 ## Installed
 
-tmaster kone ip 192.168.12.3 lisäsin sen salt minion, asensin sen uudeleen windowsille
+Ensiksi tarkistin ettei vlc ole asennettu
 
-hyväksytin uuden minion koneen
 
-    sudo salt-key -A
-    
-loin kansion
-
-    sudo mkdir -p /srv/salt/win
     
 
 
