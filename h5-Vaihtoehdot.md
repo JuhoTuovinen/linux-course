@@ -101,96 +101,102 @@ Raportti tulee jatkumaan.
 
 # Windowsin asennus
 
-Asensin Windows iso filen lähteestä https://www.microsoft.com/fi-fi/software-download/windows10ISO. Se toimi
+Koska aikaisempi windows virtuaalikone ei toiminut, etsin toisen uudesta lähteestä. Asensin Windows ISO- tiedoston lähteestä https://www.microsoft.com/fi-fi/software-download/windows10ISO. Se toimi.
+
+
 
 ## Asenna Salt Windowsille
 
-8.5.2023 kello 21
+Maanantai 08.05.2023 kello 21
 latasin salt minionin windowsille https://repo.saltproject.io/salt/py3/windows/latest/Salt-Minion-3006.1-Py3-AMD64-Setup.exe
 
-aloitin asentamisen. tarkistin masterila mäkki ip ja annoin sen asennusvaiheessa.
+Aloitin asentamisen ja tarkistin masterin (eli Macbook:in) IP-osoitteen ja annoin sen asennusvaiheessa.
 
-katsoin salt sivulta ohjeita https://docs.saltproject.io/salt/install-guide/en/latest/topics/install-by-operating-system/macos.html
+<img src="/images/kuva75.png" alt="testi" title="testi" width="60%" height="60%">
 
-käytin alla olevaa komentoa jonka tilalle laitoin minionin ip osoitteen ja master koneen ip osoitteen
+Katsoin Salt:in sivulta ohjeita (https://docs.saltproject.io/salt/install-guide/en/latest/topics/install-by-operating-system/macos.html) jakäytin alla olevaa komentoa, jonka tilalle laitoin minionin ip osoitteen ja master koneen ip osoitteen.
 
     sudo salt-config -i yourminionname -m yoursaltmaster
 
-sen jälkeen hyväksytin avaimet 
+Sen jälkeen hyväksytin avaimet.
 
     sudo salt-key -A 
     
-testi ping. yhteys saatiin
+<img src="/images/kuva76.png" alt="testi" title="testi" width="60%" height="60%">
 
-    sudo salt minion1 test.ping
+Ja testasin yhteyttä pingaamalla konetta
+
+    sudo salt Minion1 test.ping
+
+<img src="/images/kuva77.png" alt="testi" title="testi" width="60%" height="60%">
+ 
+ Kone vastasi jayhteys saatiin.
 
 ## Ei voi kalastaa
 
 käytin apuna danielin raporttia https://github.com/danielz95/palvelintenhallinta-2023/blob/main/h5-Salt%20Windows.md ja https://github.com/RAV64/palvelinten-hallinta/blob/main/h5.md
 
-käytin saltia paikallisesti windowsilla komennolla
+Käytin saltia paikallisesti komennoilla:
 
     salt-call --local test.ping
     
     salt-call --local state.single cmd.run whoami
     
+<img src="/images/kuva78.png" alt="testi" title="testi" width="60%" height="60%">
+ 
+Molemmat komennot onnistuivat ja salt toimi paikallisesti .
+    
+    
 ## Hei ikkuna
 
-loink kansion win10
+Loink kansion "win10" polkuun /etc/salt master-konellani.
 
     salt % sudo mkdir -p /etc/salt/win10
     
-loin tekstitiedoston kansioon
+Loin tekstitiedoston kansioon.
 
     sudo touch hello.txt
    
-luon init.sls
+Luon init.sls-tilatiedoston.
     
-    sudo pico init.lsl
+    sudo pico init.sls
     
- lisäsin komennon joka asentaa tiedoston kansioon documents
+  Ja lisäsin komennon, joka asentaa tiedoston kansioon C:/Users/Public/Documents orjakoneella.
 
 ```
 C:/Users/Public/Documents/hello.txt:
   file.managed:
     - source: "salt://win10/hello.txt"
 ```
-ei toiminut eikä saa luotua /Srv/salt kansiota
+
+Ajoin tilan, mutta se ei oitminut.
+
+    sudo salt Minion1 state.apply win10
+    
+<img src="/images/kuva79.png" alt="testi" title="testi" width="60%" height="60%">
+    
+
+N myöskään saa luotua /srv/salt kansiota master-koneelleni. Saan alla olevan virheilmoituksen.
 
     mkdir: /srv: Read-only file system
     
-kokeilin muokata konfiguraatiokansiota /etc/salt/minion  
+Kokeilin muokata konfiguraatiotiedostoaa /etc/salt/minion  
  ``` 
 file_roots:
   base:
-    - source: "/etc/salt/win10"
-```
-
-koska 
- 
-     sudo salt Minion1 state.apply win10 -l debug
-     
-lisäsin master konfiguraatiotedoston
-
-```
-
-file_roots:
-  base:
     - /etc/salt
-    
- ```   
-sekä lisäsin konfiguraatiotedoston kotihakemistoon
+```
+     
+Lisäsin varmuuden vuoksi master-konfiguraatiotedoston, jonne lisäsin saman YAML-tekstin.
 
-    sudo pico ~/.saltrc
-    
-ja teksti
+
+Kokeilin hello.txt- tiedoston asennusta uudelleen. Tiedosto ei silti asentunut.
 
 ```
-
-master: localhost
+Minion1:
+Data failed to compile:
+No matching sls found for 'win10' in env "base'
 ```
-virheilmoitukset saatiin pois, mutta tiedosto ei asentunut
-
 
 Tiistai 09.05.2023 Kello 12.25
 
@@ -199,6 +205,8 @@ Päätin kokeilla toista lähestymistapaa ja tilan sijaan päädyin komentoon:
     sudo salt '*' state.single file.managed C:/Users/Public/Documents/hello.txt
     
  Komento suorittaa saman asian kuin kaikaisemmin kokeillun tilan toiminto. Komento luo hello.txt tiedoston hallittavan koneen polkuun C:/Users/Public/Documents/. 
+
+<img src="/images/kuva80.png" alt="testi" title="testi" width="60%" height="60%">
 
 ## Installed
 
@@ -227,4 +235,3 @@ https://docs.saltproject.io/salt/install-guide/en/latest/topics/install-by-opera
 https://github.com/danielz95/palvelintenhallinta-2023/blob/main/h5-Salt%20Windows.md
 
 https://github.com/RAV64/palvelinten-hallinta/blob/main/h5.md
-
