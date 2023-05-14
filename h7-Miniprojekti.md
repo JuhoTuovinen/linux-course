@@ -183,8 +183,12 @@ Ajoin tilan uudestaan ja kansio luotiin sekä tiedosto ladattiin kansioon.
 
 # Micro kongiguraatio
 
+Tarkoitus on vaihtaa Micron oletus teemaa värikkäämmäksi. Haluan teeman "cmc-16", joten ensiksi vaihdan sen käsin.
 
+Avasin Micro-editorin ja painoin <code>ctrl + e</code>, jolloin avautuu komentorivi. Komentoriville kirjoitin <code>set colorscheme cmc-16</code>, jolloin teema vaihtuu.
 
+ONgelma: jos teemaa haluaa vaihtaa täytyy linkitys poistaa.
 
+ sci kerava
 
 
