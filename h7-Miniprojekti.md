@@ -140,7 +140,7 @@ Polkuun /usr/local/bin luodaan onnistuneesti kansio ja Github-varasto latautuu o
 [ERROR   ] retcode: 128
 ````
 
-<img src="/images/kuva100.png" alt="testi" title="testi" width="70%" height="70%">
+<img src="/images/kuva101.png" alt="testi" title="testi" width="70%" height="70%">
 
 
 - <code>file.directory</code> varmistaa, että kansio löytyy.
@@ -148,14 +148,42 @@ Polkuun /usr/local/bin luodaan onnistuneesti kansio ja Github-varasto latautuu o
 - <code>git.latest</code> kloonaa Github varaston.
 - <code>target</code> kertoo, minne github varasto kloonataan.
 
+Lähde: Saltsatck, SALT.STATES.GIT, https://docs.saltproject.io/en/latest/ref/states/all/salt.states.git.html.
 
+# Rockyou
 
-# Rock you
+Seuraavaksi tarkoitukseni on ladata salasanojen murtamisessa käytetty rockyou- sanalista. Luodaan kansio polkuun /usr/bin/local, jonne tallennetaa sanalista. Tämä on tarkoitus automatisoida.
 
-https://github.com/brannondorsey/naive-hashcat/releases/download/data/rockyou.txt
+Ensiksi latasin sanalistan käsin osoitteesta https://github.com/brannondorsey/naive-hashcat/releases/download/data/rockyou.txt.
 
+Testivaiheessa luodaan uusi tila, joka luo kansion "wordlists" ja lataa listan kansioon. Loin kansion "rockyou" polkuun /srv/salt, minne lisäsin YAML-koodia.
+
+````
+/usr/local/bin/wordlists/rockyou.txt:
+  file.managed:
+    - makedirs: True
+    - source: https://github.com/brannondorsey/naive-hashcat/releases/download/data/rockyou.txt
+    - mode: "0755"
+ ````
+- <code>file.managed</code> kerrotaan, että halutaan hallita tiedostoa.
+- <code>makedirs: True</code> luo kansion, jos sitä ei ole.
+- <code>source:</code> mistä tiedosto ladataan.
+- <code>mode: "0755"</code> antaa omistaja ajaa, lukea ja kirjoittaa tiedoston päälle sekä ryhmän ja muiden käyttäjien lukea ja ajaa ohjelma.
+
+Ajoin tilan ja sain virheilmoituksen.
+
+<img src="/images/kuva102.png" alt="testi" title="testi" width="70%" height="70%">
+
+Virheessä kerrotaan, että pitää lisätä <code>skip_verify</code> -parametri, joten lisäsin <code>- skip_verify: True
+</code>.
+
+Ajoin tilan uudestaan ja kansio luotiin sekä tiedosto ladattiin kansioon.
+
+<img src="/images/kuva103.png" alt="testi" title="testi" width="70%" height="70%">
 
 # Micro kongiguraatio
+
+
 
 
 
