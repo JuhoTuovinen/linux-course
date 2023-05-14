@@ -36,36 +36,40 @@ testaan, että saadaan saltilla yhteys itseemme
    
     sudo salt-call --local test.ping
     
- test ping true kuva
+ <img src="/images/kuva96.png" alt="testi" title="testi" width="70%" height="70%">
 
+## Toteutus
 
-# Ohjelmien asentamisen automatisointi
-aion tehdä näin blablabla
+#Ohjelmien käsin asennus
 
-Päivitin paketin halinnan
+Aloitin projektin ensimmäisen vaiheen asentamalla aiemmin mainitut ohjelmat käsin paketinhallinnasta. Tällä tavoin testataan, että ohjelmat löytyvät paketinhallinnasta, ja että ne toimivat.
+
+Ensimmäiseksi päivitin paketinhalinnan.
 
     sudo apt-get update 
 
-Aloitin ensin asentamalla jokaisen ohjelman paketin hallinnasta käsin
+Sen jälkeen asennutin jokaisen ohjelman paketinhallinnasta käsin.
 
     sudo apt install <ohjelma>
     
 Testasin, että ohjelmat toimivat.
 
 
+# Ohjelmien asennuksen automatisointi
+
+Tarkoituksena on automatisoida äsken ladattujen ohjelmistojen asennus Saltilla. Luon tilan, joka asennuttaa ohjelmat.
 
 
-
-Loin knasion
+Loin polun /srv/salt, jonka jälkeen loin polkuun kansion "pen-tools".
 
     sudo mkdir -p /srv/salt/pen-tools
 
-loin tilatiedoston
+Loin tilatiedoston pen-tools- kansioon.
 
     sudo nano /srv/salt/pen-tools/init.sls
     
     
-lisäsin tilatiedostoon yaml, joka automatisoidustin asentaa ohjelmat
+Lisäsin tilatiedostoon YAML-koodia, joilla ohjelmien asennus tapahtuu.
 
 ```
 tools_installation:
@@ -79,70 +83,79 @@ tools_installation:
       - hashcat  
 
 ```
-<code>tools_installation</code> on nimi
-<code>pkg.installed</code> lataa alla olevat ohjelmat paketinhallinnasta
+- <code>tools_installation</code> on tilan ID.
+- <code>pkg.installed</code> lataa ohjelmat paketinhallinnasta.
+- <code>pkgs</code> parametri kertoo mitkä ohjelmat ladataan.
 
-testasin komennolla
+Testasin onnistuuko automatisoitu ohjelmien asentaminen paikallisesti.
 
     sudo salt-call --local state.apply pen-tools
 
-Salt ilmoitti, että ohjelmat ovat asennettu. Eli ohjelmat asentuu toivotunlaisesti
+Salt ilmoitti, että ohjelmat ovat asennettu. Eli ohjelmat asentuu toivotunlaisesti.
 
-kuva 
+ <img src="/images/kuva97.png" alt="testi" title="testi" width="70%" height="70%">
 
-# Paketinhallinnan ulkopuolelta ladattan ohjelman automatisointi
 
-tarkoitukseni
+# Ohjelma paketinhallinnan ulkopuolelta
 
-John the ripper: https://github.com/openwall/john
+Tarkoitus on ladata John The Ripper-työkalu paketinhallinnan ulkopuolelta. Hyötyjä ohjelman asentamisen paketinhallinan ulkopuolelta on mm., että saadaan varmasti uusin versio ladattua tai voidaan valita ladattava (esim. vanhempi) versio.
 
-latasin ensin käsin
+Aloitin lataamalla työkalun ensin käsin Githubista (https://github.com/openwall/john).
 
      git clone https://github.com/openwall/john.git
      
-kuva git clone
+<img src="/images/kuva98.png" alt="testi" title="testi" width="70%" height="70%">
 
-Seuraavaksi automatisointi
+Seuraavaksi automatisoin latauksen. Testausvaiheessa luon oman tilan pelkästään kyseisen työkalun asennukseen.
 
-testiksi loin tilan, joka luo kansion polkuun /usr/local/bin ja lataa varaston githubista sinne.
+Jokaisella käyttäjällä on ainakin yhteinen hakemisto /usr/local/bin. Ladattaessa ohjelma polkuun saadaan se jaettua kaikille Linux-käyttäjille. Ensiksi luodaan kansio "john" kyseiseen polkuun.
 
-kokeilin ensin tällä
-````
-clone_john_repo:
-  git.latest:
-    - name: https://github.com/openwall/john.git
-````
-
-kuva virheestä
-
-virhe kertoo, että "target" parametri puuttuu. lisäsin parametrin sekä komennon jolla luodaan tiedosto "john" polkuun /usr/local/bin/.
 
 ````
 /usr/local/bin/john:
   file.directory:
     - makedirs: True
+````
+
+Kansion luonti onnistui.
+
+<img src="/images/kuva99.png" alt="testi" title="testi" width="70%" height="70%">
+
+Seuraavaksi Github-varasto täytyy ladata polkuun /usr/local/bin/john. Lisäsin tilaan YAML-koodia, joka lataa varaston haluamastani osoitteesta (https://github.com/openwall/john.git) ja tallentaa sen sisällön polkuun /usr/local/bin/john.
 
 
-
+````
 john_repo:
   git.latest:
     - name: https://github.com/openwall/john.git
     - target: /usr/local/bin/john
-    - require:
-      - file: john_clone
+    
 
 ````
+Polkuun /usr/local/bin luodaan onnistuneesti kansio ja Github-varasto latautuu onnistuneesti kohteeseen, vaikkakin saadaan virheilmoitus. Vika on vielä selvittämättä.
 
-<code>file</code>
+````
+[ERROR   ] Command 'git' failed with return code: 128
+[ERROR   ] stderr: fatal: not a git repository (or any of the parent directories): .git
+[ERROR   ] retcode: 128
+````
 
-Tiedosto ladattiin githubista ja kansio luotiin.
+<img src="/images/kuva100.png" alt="testi" title="testi" width="70%" height="70%">
 
-kuva
 
-kuva
+- <code>file.directory</code> varmistaa, että kansio löytyy.
+- <code>makedirs: True</code> luo kansion, jos sitä ei ole.
+- <code>git.latest</code> kloonaa Github varaston.
+- <code>target</code> kertoo, minne github varasto kloonataan.
+
+
 
 # Rock you
 
+https://github.com/brannondorsey/naive-hashcat/releases/download/data/rockyou.txt
+
+
+# Micro kongiguraatio
 
 
 
