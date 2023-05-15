@@ -103,9 +103,9 @@ Kutsutaan tilaa paikallisesti.
     
     sudo salt-call --local state.apply pen-tools
 
-Asennus kestää noin 5-10 minuuuttia. Jos asennus onnistuu näkymäsi tulisi näyttää tältä:
+Asennus kestää noin 5 minuuuttia. Jos asennus onnistuu näkymäsi tulisi näyttää tältä:
 
-<img src="/images/kuva104.png" alt="testi" title="testi" width="70%" height="70%">
+<img src="/images/kuva104.png" alt="testi" title="testi" width="50%" height="50%">
 
     sudo mkdir -p ~/.config/micro && sudo cp /etc/skel/.config/micro/settings.json ~/.config/micro/settings.json
     
