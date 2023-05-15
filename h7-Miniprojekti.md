@@ -21,7 +21,7 @@ Konfiguraatiot:
 
 # Työpöydän käyttöönotto
 
-## Salt
+
 Työpöydän asennus vaatiin Saltin käyttöä. Asenna ensin Salt-ohjelmisto. Ohjeet asennukseen löytyvät osoitteesta https://docs.saltproject.io/salt/install-guide/en/latest/topics/install-by-operating-system/ubuntu.html#install-salt-on-ubuntu-22-04-jammy. 
 
 ## Työpöydän asennus
