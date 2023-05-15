@@ -86,7 +86,7 @@ john_repo:
     
 ````
 
-<code>ctrl + X</code> ja <code>Y</code> tallettaa tiedoston ja poistuu Nano-tekstieditorista.
+<code>ctrl + X</code> + <code>Y</code> + <code>Enter</code> tallettaa tiedoston ja poistuu Nano-tekstieditorista.
 
 Navikoidaan aiemmin luotuun /srv/salt polkuun.
 
