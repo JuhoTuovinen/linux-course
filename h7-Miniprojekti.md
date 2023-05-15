@@ -314,4 +314,12 @@ Loin uuden tilan "micro" testatakseni ominaisuutta. Lisäsin YAMLL-koodia, joka 
  
 Ongelmana on, että konfiguraatiot Microon haetaan käyttäjän polusta <code>~/.config/micro</code>, joten muutokset täytyy tallentaa sinne. Tämän automatisoidessa Salt kuitenkin asentaa muutokset "root"-käyttäjälle, eikä henkilökohtaisille käyttäjille. Päädyin ratkaisuun, että käyttäjä itse ajaa terminaalissa komennon <code>sudo mkdir -p ~/.config/micro && sudo cp /etc/skel/.config/micro/settings.json ~/.config/micro/settings.json</code>, joka luo polun konfiguraatiokansioon ja kopioi konfiguraatio tiedosto polusta <code>/etc/skel/.config/micro/settings.json</code>, jonne se konfiguratio oli Saltilla asennettu.
 
+## Lopputestaus
 
+Lopuksi kopioin kaikkien yksittäisten tilojen YAML-koodit ja liitin ne yhteen tiedostoon. Loin tilan <code>pen-tools</code> ja ajoin sen.
+
+      sudo salt-call --local state.apply pen-tools
+
+Työpöytä asentui onnistuneesti.
+
+<img src="/images/kuva104.png" alt="testi" title="testi" width="70%" height="70%">
