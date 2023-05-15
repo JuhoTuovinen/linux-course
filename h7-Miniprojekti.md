@@ -340,4 +340,4 @@ SALT.STATES.GIT, Saltstack, https://docs.saltproject.io/en/latest/ref/states/all
 
 JuhoTuovinen, linux-course, h1-h6, Github, https://github.com/JuhoTuovinen/linux-course
 
-SALT.STATES.PKG, SaltStack, ://docs.saltproject.io/en/latest/ref/states/all/salt.states.pkg.html
+SALT.STATES.PKG, SaltStack, https://docs.saltproject.io/en/latest/ref/states/all/salt.states.pkg.html
