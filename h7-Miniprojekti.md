@@ -104,7 +104,6 @@ Asennus kestää noin 5-10 minuuuttia. Jos asennus onnistuu näkymäsi tulisi n�
     
  Jotta Microon saadaan teema vaihdettua cmc-16:sta, täytyy ensin luoda polku konfiguraatiotiedostoon, koska sitä ei ole automaattisesti luotu ennen Micron käyttöön ottoa. Sen jälkeen käyttäjän täytyy kopioida <code>/etc/skel/.config/micro.settings.json</code>- tiedosto käyttäjän polkuun <code>~/.config/micro/settings.json</code>
  
-    sudo mkdir -p ~/.config/micro && sudo cp /etc/skel/.config/micro/settings.json ~/.config/micro/settings.json
     
 Työpöytä on asennettu ja konfiguraatiot tehty.
 
