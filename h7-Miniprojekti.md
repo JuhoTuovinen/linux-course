@@ -21,11 +21,15 @@ Konfiguraatiot:
 
 # Työpöydän käyttöön otto
 
-Työpöydän asennus vaatiin Saltin käyttöä. Asenn ensin Salt. Ohjeet löytyy osoitteesta https://docs.saltproject.io/salt/install-guide/en/latest/topics/install-by-operating-system/ubuntu.html#install-salt-on-ubuntu-22-04-jammy. Kun Salt on asennettu aja vielä  <code>sudo apt-get update</code>, jotta paketinhallintajärjestelmä on ajan tasalla.
+##Salt
+Työpöydän asennus vaatiin Saltin käyttöä. Asenna ensin Salt-ohjelmisto. Ohjeet asennukseen löytyvät osoitteesta https://docs.saltproject.io/salt/install-guide/en/latest/topics/install-by-operating-system/ubuntu.html#install-salt-on-ubuntu-22-04-jammy. 
+
+## Työpöydän asennus
+Aja ensin <code>sudo apt-get update</code>, jotta paketinhallintajärjestelmä on ajan tasalla.
 
     sudo apt-get update
 
-Luodaan polku <code>/srv/salt</code> ja polkuun kansio "pen-tools".
+Luodaan polku <code>/srv/salt</code> ja polkuun kansio "pen-tools", joka toimii myös tilan nimenä.
      
     sudo mkdir -p /srv/salt/pen-tools
     
@@ -104,31 +108,31 @@ Asennus kestää noin 5-10 minuuuttia. Jos asennus onnistuu näkymäsi tulisi n�
     
 Työpöytä on asennettu ja konfiguraatiot tehty.
 
-## Rauta
+# Projektin toteutus
 
+## Rauta
+````
 Apple MacBook 2015
 macOs Monterey versio 12.6.4
 Ram -muistia 16GB
-levytilaa vapaana 57,97 GB.
-
+````
 Ohjelmistot
 
-UTM
-Ubuntu virtuaalikone
+- UTM Version 4.1.6 (75)
+- Ubuntu 22.04.2 (Jammy) (virtuaalikone)
+- Salt
 
 ## Salt
 
-vaatii saltin asentamisen, ohjeet: https://docs.saltproject.io/salt/install-guide/en/latest/topics/install-by-operating-system/ubuntu.html
+Asensin Saltin Ubunntulle SaltStack:n ohjeiden mukaan (https://docs.saltproject.io/salt/install-guide/en/latest/topics/install-by-operating-system/ubuntu.html).
 
-päivitetään pakettine hallinta
-
-testaan, että saadaan saltilla yhteys itseemme
+Testasin, että saadaan Saltilla yhteys itseemme.
    
     sudo salt-call --local test.ping
     
  <img src="/images/kuva96.png" alt="testi" title="testi" width="70%" height="70%">
 
-# Toteutus
+Yhteys saatiin, eli Salt on asentunut.
 
 ## Ohjelmien käsin asennus
 
@@ -150,11 +154,11 @@ Testasin, että ohjelmat toimivat.
 Tarkoituksena on automatisoida äsken ladattujen ohjelmistojen asennus Saltilla. Luon tilan, joka asennuttaa ohjelmat.
 
 
-Loin polun /srv/salt, jonka jälkeen loin polkuun kansion "pen-tools".
+Loin polun <code>/srv/salt</code>, jonka jälkeen loin polkuun kansion <code>pen-tools</code>.
 
     sudo mkdir -p /srv/salt/pen-tools
 
-Loin tilatiedoston pen-tools- kansioon.
+Loin tilatiedoston <code>pen-tools</code>- kansioon.
 
     sudo nano /srv/salt/pen-tools/init.sls
     
@@ -181,7 +185,7 @@ Testasin onnistuuko automatisoitu ohjelmien asentaminen paikallisesti.
 
     sudo salt-call --local state.apply pen-tools
 
-Salt ilmoitti, että ohjelmat ovat asennettu. Eli ohjelmat asentuu toivotunlaisesti.
+Salt ilmoitti, että ohjelmat ovat jo asennettu. Eli ohjelmat asentuvat toivotunlaisesti.
 
  <img src="/images/kuva97.png" alt="testi" title="testi" width="70%" height="70%">
 
@@ -198,8 +202,7 @@ Aloitin lataamalla työkalun ensin käsin Githubista (https://github.com/openwal
 
 Seuraavaksi automatisoin latauksen. Testausvaiheessa luon oman tilan pelkästään kyseisen työkalun asennukseen.
 
-Jokaisella käyttäjällä on ainakin yhteinen hakemisto /usr/local/bin. Ladattaessa ohjelma polkuun saadaan se jaettua kaikille Linux-käyttäjille. Ensiksi luodaan kansio "john" kyseiseen polkuun.
-
+Jokaisella käyttäjällä on ainakin yksi yhteinen hakemisto <code>/usr/local/bin</code>. Ladattaessa ohjelma polkuun saadaan, se jaettua kaikille Linux-käyttäjille. Ensiksi luodaan kansio <code>john</code> kyseiseen polkuun.
 
 ````
 /usr/local/bin/john:
@@ -211,7 +214,7 @@ Kansion luonti onnistui.
 
 <img src="/images/kuva99.png" alt="testi" title="testi" width="70%" height="70%">
 
-Seuraavaksi Github-varasto täytyy ladata polkuun /usr/local/bin/john. Lisäsin tilaan YAML-koodia, joka lataa varaston haluamastani osoitteesta (https://github.com/openwall/john.git) ja tallentaa sen sisällön polkuun /usr/local/bin/john.
+Seuraavaksi Github-varasto täytyy ladata polkuun <code>/usr/local/bin/john</code>. Lisäsin tilaan YAML-koodia, joka lataa varaston haluamastani osoitteesta (https://github.com/openwall/john.git) ja tallentaa sen sisällön polkuun <code>/usr/local/bin/john</code>.
 
 
 ````
@@ -222,7 +225,7 @@ john_repo:
     
 
 ````
-Polkuun /usr/local/bin luodaan onnistuneesti kansio ja Github-varasto latautuu onnistuneesti kohteeseen, vaikkakin saadaan virheilmoitus. Vika on vielä selvittämättä.
+Polkuun <code>/usr/local/bin</code> luodaan onnistuneesti kansio, ja Github-varasto latautuu onnistuneesti kohteeseen, vaikkakin saadaan virheilmoitus. Vika on vielä selvittämättä. 
 
 ````
 [ERROR   ] Command 'git' failed with return code: 128
@@ -242,11 +245,11 @@ Lähde: Saltsatck, SALT.STATES.GIT, https://docs.saltproject.io/en/latest/ref/st
 
 ## Rockyou
 
-Seuraavaksi tarkoitukseni on ladata salasanojen murtamisessa käytetty rockyou- sanalista. Luodaan kansio polkuun /usr/bin/local, jonne tallennetaa sanalista. Tämä on tarkoitus automatisoida.
+Seuraavaksi tarkoitukseni on ladata salasanojen murtamisessa käytetty <code>rockyou.txt</code>- sanalista. Luodaan kansio polkuun <code>/usr/bin/local</code>, jonne tallennetaa sanalista. Tämä on tarkoitus automatisoida.
 
 Ensiksi latasin sanalistan käsin osoitteesta https://github.com/brannondorsey/naive-hashcat/releases/download/data/rockyou.txt.
 
-Testivaiheessa luodaan uusi tila, joka luo kansion "wordlists" ja lataa listan kansioon. Loin kansion "rockyou" polkuun /srv/salt, minne lisäsin YAML-koodia.
+Testivaiheessa luodaan uusi tila, joka luo kansion "wordlists" ja lataa listan kansioon. Loin kansion <code>rockyou</code> polkuun <code>/srv/salt</code>, minne lisäsin YAML-koodia.
 
 ````
 /usr/local/bin/wordlists/rockyou.txt:
@@ -304,6 +307,6 @@ Loin uuden tilan "micro" testatakseni ominaisuutta. Lisäsin YAMLL-koodia, joka 
 - <code>source</code> lähde, josta tiedosto ladataan.
 - <code>- skip_verify: True</code>ohittaa lähde-URL:n SSL/TLS-sertifikaatin varmennuksen. 
  
-Ongelmana on, että konfiguraatiot microo haetaan käyttäjän polusta <code>~/.config/micro</code>, joten muutokset täytyy tallentaa sinne. Tämän automatisoidessa Salt kuitenkin asentaa muutokset "root"-käyttäjälle, eikä henkilökohtaisille käyttäjille. Päädyin ratkaisuun, että käyttäjä itse ajaa terminaalissa komennon <code>sudo mkdir -p ~/.config/micro && sudo cp /etc/skel/.config/micro/settings.json ~/.config/micro/settings.json</code>, joka luo polun konfiguraatiokansioon ja kopioi konfiguraatio tiedosto polusta <code>/etc/skel/.config/micro/settings.json</code>, jonne se konfiguratio oli Saltilla asennettu.
+Ongelmana on, että konfiguraatiot Microon haetaan käyttäjän polusta <code>~/.config/micro</code>, joten muutokset täytyy tallentaa sinne. Tämän automatisoidessa Salt kuitenkin asentaa muutokset "root"-käyttäjälle, eikä henkilökohtaisille käyttäjille. Päädyin ratkaisuun, että käyttäjä itse ajaa terminaalissa komennon <code>sudo mkdir -p ~/.config/micro && sudo cp /etc/skel/.config/micro/settings.json ~/.config/micro/settings.json</code>, joka luo polun konfiguraatiokansioon ja kopioi konfiguraatio tiedosto polusta <code>/etc/skel/.config/micro/settings.json</code>, jonne se konfiguratio oli Saltilla asennettu.
 
 
