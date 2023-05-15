@@ -1,18 +1,104 @@
 # Miniprojekti
-Miniprojketin tarkoituksena on Saltin avulla asentaa aloittelevan penetraatiotestaajan työpöytä Ubuntulle. Työpöydälle asentuu penetraatio testauksessa hyödynnettäviä ohjelmistoja kuten NMap, Wireshark, John The ripper ja HAshcat. Lisäksi asennetaan yleishyödyllisiä ohjelmia kuten Micro, git ja firefox.
 
-Ladataan ja asennetaan:
-- Nmap
-- Wireshark
-- HashCat
-- John The ripper
-- micro
-- firefox
-- git
-- rockyou.txt
+## Penetraatiotestaus-työpöytä aloittelijalle
+Miniprojketin tarkoituksena on Saltin avulla asentaa aloittelevan penetraatiotestaajan työpöytä Ubuntu 22.04.2-käyttöjärjestelmälle. Työpöydälle asentuu penetraatiotestauksessa hyödynnettäviä työkaluja sekä muita yleishyödyllisiä työkaluja. 
 
-KOngiguraatioita:
-- micro mcm teema
+(HUOM! Tutustuthan työkaluihin ennen niiden käyttöönottoa. Osalla työkaluista voi väärinkäytettynä luoda vahinkoa tai toiminta voi olla laitointa. Älä siis käytä työkaluja muiden verkkoihin tai laitteisiin.)
+
+Asennettavat työkalut:
+- Nmap (verkkojen skannaus- ja tietoturvatyökalu)
+- Wireshark (verkkoanalyysityökalu)
+- HashCat (ohjelmisto salasanojen murtamiseen)
+- John The Ripper (ohjelmisto salasanojen murtamiseen)
+- Micro (tekstieditori)
+- Firefox (verkkoselain)
+- Git (versionhallintajärjestelmä)
+- rockyou.txt (sanalista salasanojen murtamiseen)
+
+Konfiguraatiot:
+- Micro-tekstieditorin teema vaihdetaan värikkäämpään cmc-16:sta
+
+
+# Työpöydän käyttöön otto
+
+Työpöydän asennus vaatiin Saltin käyttöä. Asenn ensin Salt. Ohjeet löytyy osoitteesta https://docs.saltproject.io/salt/install-guide/en/latest/topics/install-by-operating-system/ubuntu.html#install-salt-on-ubuntu-22-04-jammy. Kun Salt on asennettu aja vielä  <code>sudo apt-get update</code>, jotta paketinhallintajärjestelmä on ajan tasalla.
+
+    sudo apt-get update
+
+Luodaan polku <code>/srv/salt</code> ja polkuun kansio "pen-tools".
+     
+    sudo mkdir -p /srv/salt/pen-tools
+    
+Luodaan tilatiedosto <code>init.sls</code> polkuun <code>/srv/salt/pen-tools</code>.
+
+    sudo nano /srv/salt/pen-tools/init.sls
+
+Kopioi YAML-koodi ja lisää se tiedostoon.
+
+````
+#software installation
+tools_installation:
+  pkg.installed:
+    - pkgs:
+      - wireshark
+      - micro
+      - nmap
+      - firefox
+      - git
+      - hashcat
+
+#John The Ripper installation
+/usr/local/bin/john:
+  file.directory:
+    - makedirs: True
+
+john_repo:
+  git.latest:
+    - name: https://github.com/openwall/john.git
+    - target: /usr/local/bin/john
+
+
+#Wordlist download
+/usr/local/bin/wordlists/rockyou.txt:
+  file.managed:
+    - makedirs: True
+    - source: https://github.com/brannondorsey/naive-hashcat/releases/download/data/rockyou.txt
+    - mode: "0755"
+    - skip_verify: True
+    
+#Micro theme configuration
+/etc/skel/.config:
+  file.directory
+    
+/etc/skel/.config/micro:
+  file.directory
+
+/etc/skel/.config/micro/settings.json:
+  file.managed:
+    - source: https://raw.githubusercontent.com/JuhoTuovinen/linux-course/main/micro-config/settings.json
+    - mode: "0755"
+    - skip_verify: True
+
+    
+````
+
+<code>ctrl + X</code> ja <code>Y</code> tallettaa tiedoston ja poistuu Nano-tekstieditorista.
+
+Navikoidaan aiemmin luotuun /srv/salt polkuun.
+
+    cd /srv/salt
+    
+Kutsutaan tilaa paikallisesti.
+    
+    sudo salt-call --local state.apply pen-tools
+
+Asennus kestää noin 5-10 minuuuttia. Jos asennus onnistuu näkymäsi tulisi näyttää tältä:
+
+<img src="/images/kuva104.png" alt="testi" title="testi" width="70%" height="70%">
+
+    sudo mkdir -p ~/.config/micro && sudo cp /etc/skel/.config/micro/settings.json ~/.config/micro/settings.json
+    
+ Jotta Microon saadaan teema vaihdettua cmc-16:sta, täytyy ensin luoda polku konfiguraatiotiedostoon, koska sitä ei ole automaattisesti luotu ennen Micron käyttöön ottoa. Sen jälkeen kopiodaan 
 
 ## Rauta
 
