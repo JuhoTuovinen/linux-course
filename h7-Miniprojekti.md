@@ -185,10 +185,34 @@ Ajoin tilan uudestaan ja kansio luotiin sekä tiedosto ladattiin kansioon.
 
 Tarkoitus on vaihtaa Micron oletus teemaa värikkäämmäksi. Haluan teeman "cmc-16", joten ensiksi vaihdan sen käsin.
 
-Avasin Micro-editorin ja painoin <code>ctrl + e</code>, jolloin avautuu komentorivi. Komentoriville kirjoitin <code>set colorscheme cmc-16</code>, jolloin teema vaihtuu.
+Avasin Micro-editorin ja painoin <code>ctrl + e</code>, jolloin avautuu komentorivi. Komentoriville kirjoitin <code>set colorscheme cmc-16</code>, jolloin teema vaihtuu. Micron mnuaalissa lukee, että configuraatio tiedosto on polussa <code>~/.config/micro</code> ja sieltä löysin tiedoston <code>settings.json</code>, jossa teema on määritelty.
 
-ONgelma: jos teemaa haluaa vaihtaa täytyy linkitys poistaa.
+ ```` 
+ {
+    "colorscheme": "cmc-16"
+}
+ ````
 
- sci kerava
+Loin uuden tilan "micro" testatakseni ominaisuutta. Lisäsin YAMLL-koodia, joka luo käyttäjän polkuun <code>/etc/skel/</code> kansiot <code>/.config/micro</code>. Sen jälkeen konfiguraatio tiedosto ladataan Github-varastostani ja tallennetaan äsken luotuun polkuun.
 
+ 
+  ````
+ /etc/skel/.config/micro:
+  file.directory:
+    - mode: "0755"
+
+/etc/skel/.config/micro/settings.json:
+  file.managed:
+    - source: https://raw.githubusercontent.com/JuhoTuovinen/linux-course/main/>
+    - mode: "0755"
+    - skip_verify: True
+ 
+ ````
+- <code>file.directory</code> varmistaa, että kansio löytyy.
+- <code>mode: "0755"</code> antaa omistaja ajaa, lukea ja kirjoittaa tiedoston päälle sekä ryhmän ja muiden käyttäjien lukea ja ajaa ohjelma.
+- <code>file.managed</code> kerrotaan, että halutaan hallita tiedostoa.
+- <code>source</code> lähde, josta tiedosto ladataan.
+- <code>- skip_verify: True</code>ohittaa lähde-URL:n SSL/TLS-sertifikaatin varmennuksen. 
+ 
+Ongelmana on, että konfiguraatiot microo haetaan käyttäjän polusta <code>~/.config/micro</code>, joten muutokset täytyy tallentaa sinne. Tämän automatisoidessa Salt kuitenkin asentaa muutokset "root"-käyttäjälle, henkilökohtaisille käyttäjille. Päädyin ratkaisuun, että käyttäjä itse ajaa terminaalissa komennon <code>sudo mkdir -p ~/.config/micro && sudo cp /etc/skel/.config/micro/settings.json ~/.config/micro/settings.json</code>, joka luo polun konfiguraatiokansioon ja kopioi konfiguraatio tiedosto polusta <code>/etc/skel/.config/micro/settings.json</code>, jonne se konfiguratio oli Saltilla asennettu.
 
