@@ -98,7 +98,11 @@ Asennus kestää noin 5-10 minuuuttia. Jos asennus onnistuu näkymäsi tulisi n�
 
     sudo mkdir -p ~/.config/micro && sudo cp /etc/skel/.config/micro/settings.json ~/.config/micro/settings.json
     
- Jotta Microon saadaan teema vaihdettua cmc-16:sta, täytyy ensin luoda polku konfiguraatiotiedostoon, koska sitä ei ole automaattisesti luotu ennen Micron käyttöön ottoa. Sen jälkeen kopiodaan 
+ Jotta Microon saadaan teema vaihdettua cmc-16:sta, täytyy ensin luoda polku konfiguraatiotiedostoon, koska sitä ei ole automaattisesti luotu ennen Micron käyttöön ottoa. Sen jälkeen käyttäjän täytyy kopioida <code>/etc/skel/.config/micro.settings.json</code>- tiedosto käyttäjän polkuun <code>~/.config/micro/settings.json</code>
+ 
+    sudo mkdir -p ~/.config/micro && sudo cp /etc/skel/.config/micro/settings.json ~/.config/micro/settings.json
+    
+Työpöytä on asennettu ja konfiguraatiot tehty.
 
 ## Rauta
 
@@ -303,72 +307,3 @@ Loin uuden tilan "micro" testatakseni ominaisuutta. Lisäsin YAMLL-koodia, joka 
 Ongelmana on, että konfiguraatiot microo haetaan käyttäjän polusta <code>~/.config/micro</code>, joten muutokset täytyy tallentaa sinne. Tämän automatisoidessa Salt kuitenkin asentaa muutokset "root"-käyttäjälle, eikä henkilökohtaisille käyttäjille. Päädyin ratkaisuun, että käyttäjä itse ajaa terminaalissa komennon <code>sudo mkdir -p ~/.config/micro && sudo cp /etc/skel/.config/micro/settings.json ~/.config/micro/settings.json</code>, joka luo polun konfiguraatiokansioon ja kopioi konfiguraatio tiedosto polusta <code>/etc/skel/.config/micro/settings.json</code>, jonne se konfiguratio oli Saltilla asennettu.
 
 
-# Käyttöön otto
-
-Luodaan kansio
-     
-    sudo mkdir -p /srv/salt/pen-tools
-    
-Tilatiedosto
-
-    sudo nano /srv/salt/pen-tools/init.sls
-
-Lisätään YAML
-
-````
-#software installation
-tools_installation:
-  pkg.installed:
-    - pkgs:
-      - wireshark
-      - micro
-      - nmap
-      - firefox
-      - git
-      - hashcat
-
-#John The Ripper installation
-/usr/local/bin/john:
-  file.directory:
-    - makedirs: True
-
-john_repo:
-  git.latest:
-    - name: https://github.com/openwall/john.git
-    - target: /usr/local/bin/john
-
-
-#Wordlist download
-/usr/local/bin/wordlists/rockyou.txt:
-  file.managed:
-    - makedirs: True
-    - source: https://github.com/brannondorsey/naive-hashcat/releases/download/data/rockyou.txt
-    - mode: "0755"
-    - skip_verify: True
-    
-#Micro theme configuration
-/etc/skel/.config:
-  file.directory
-    
-/etc/skel/.config/micro:
-  file.directory
-
-/etc/skel/.config/micro/settings.json:
-  file.managed:
-    - source: https://raw.githubusercontent.com/JuhoTuovinen/linux-course/main/micro-config/settings.json
-    - mode: "0755"
-    - skip_verify: True
-
-    
-````
-
-<code>ctrl + X</code> ja <code>Y</code> päästään pois
-
-sen jälkeen navikoidaan aiemmin luotuun /srv/salt polkuun ja kutsutaan tilaa paikallisesti.
-
-    cd /srv/salt
-    sudo salt-call --local state.apply pen-tools
-
-Asennuksen jälkeen micron konffa
-
-    sudo mkdir -p ~/.config/micro && sudo cp /etc/skel/.config/micro/settings.json ~/.config/micro/settings.json
