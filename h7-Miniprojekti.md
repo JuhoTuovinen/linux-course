@@ -323,3 +323,21 @@ Lopuksi kopioin kaikkien yksittäisten tilojen YAML-koodit ja liitin ne yhteen t
 Työpöytä asentui onnistuneesti.
 
 <img src="/images/kuva104.png" alt="testi" title="testi" width="70%" height="70%">
+
+## Lähteet
+
+Karvinen, Tero: Oppitunnit 11/05/2023, Palvelinten hallinta, h6-Puolikas, https://terokarvinen.com/2023/palvelinten-hallinta-2023-kevat/#h6-puolikas
+
+Download Ubuntu Desktop, https://ubuntu.com/download/desktop
+
+John The Ripper, Github, https://github.com/openwall/john
+
+Rockyou wordlist, Github, https://github.com/brannondorsey/naive-hashcat/releases/download/data/rockyou.txt
+
+Ubuntu - Salt install guide, https://docs.saltproject.io/salt/install-guide/en/latest/topics/install-by-operating-system/ubuntu.html#install-salt-on-ubuntu-22-04-jammy
+
+SALT.STATES.GIT, Saltstack, https://docs.saltproject.io/en/latest/ref/states/all/salt.states.git.html
+
+JuhoTuovinen, linux-course, h1-h6, Github, https://github.com/JuhoTuovinen/linux-course
+
+SALT.STATES.PKG, SaltStack, ://docs.saltproject.io/en/latest/ref/states/all/salt.states.pkg.html
