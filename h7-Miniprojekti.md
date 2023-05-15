@@ -38,9 +38,9 @@ testaan, että saadaan saltilla yhteys itseemme
     
  <img src="/images/kuva96.png" alt="testi" title="testi" width="70%" height="70%">
 
-## Toteutus
+# Toteutus
 
-#Ohjelmien käsin asennus
+## Ohjelmien käsin asennus
 
 Aloitin projektin ensimmäisen vaiheen asentamalla aiemmin mainitut ohjelmat käsin paketinhallinnasta. Tällä tavoin testataan, että ohjelmat löytyvät paketinhallinnasta, ja että ne toimivat.
 
@@ -55,7 +55,7 @@ Sen jälkeen asennutin jokaisen ohjelman paketinhallinnasta käsin.
 Testasin, että ohjelmat toimivat.
 
 
-# Ohjelmien asennuksen automatisointi
+## Ohjelmien asennuksen automatisointi
 
 Tarkoituksena on automatisoida äsken ladattujen ohjelmistojen asennus Saltilla. Luon tilan, joka asennuttaa ohjelmat.
 
@@ -80,7 +80,7 @@ tools_installation:
       - nmap
       - firefox
       - git
-      - hashcat  
+      - hashcat 
 
 ```
 - <code>tools_installation</code> on tilan ID.
@@ -96,7 +96,7 @@ Salt ilmoitti, että ohjelmat ovat asennettu. Eli ohjelmat asentuu toivotunlaise
  <img src="/images/kuva97.png" alt="testi" title="testi" width="70%" height="70%">
 
 
-# Ohjelma paketinhallinnan ulkopuolelta
+## Ohjelma paketinhallinnan ulkopuolelta
 
 Tarkoitus on ladata John The Ripper-työkalu paketinhallinnan ulkopuolelta. Hyötyjä ohjelman asentamisen paketinhallinan ulkopuolelta on mm., että saadaan varmasti uusin versio ladattua tai voidaan valita ladattava (esim. vanhempi) versio.
 
@@ -150,7 +150,7 @@ Polkuun /usr/local/bin luodaan onnistuneesti kansio ja Github-varasto latautuu o
 
 Lähde: Saltsatck, SALT.STATES.GIT, https://docs.saltproject.io/en/latest/ref/states/all/salt.states.git.html.
 
-# Rockyou
+## Rockyou
 
 Seuraavaksi tarkoitukseni on ladata salasanojen murtamisessa käytetty rockyou- sanalista. Luodaan kansio polkuun /usr/bin/local, jonne tallennetaa sanalista. Tämä on tarkoitus automatisoida.
 
@@ -181,7 +181,7 @@ Ajoin tilan uudestaan ja kansio luotiin sekä tiedosto ladattiin kansioon.
 
 <img src="/images/kuva103.png" alt="testi" title="testi" width="70%" height="70%">
 
-# Micron konfigurointi
+## Micron konfigurointi
 
 Tarkoitus on vaihtaa Micron oletus teemaa värikkäämmäksi. Haluan teeman "cmc-16", joten ensiksi vaihdan sen käsin.
 
@@ -231,7 +231,7 @@ Lisätään YAML
 
 ````
 #software installation
-pen:
+tools_installation:
   pkg.installed:
     - pkgs:
       - wireshark
