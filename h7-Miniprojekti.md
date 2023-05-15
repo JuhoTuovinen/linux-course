@@ -18,6 +18,13 @@ Asennettavat työkalut:
 Konfiguraatiot:
 - Micro-tekstieditorin teema vaihdetaan värikkäämpään cmc-16:sta
 
+<img src="/images/nmap.png" alt="testi" title="testi" width="50%" height="50%">
+<img src="/images/wire.png" alt="testi" title="testi" width="50%" height="50%">
+<img src="/images/micro.png" alt="testi" title="testi" width="50%" height="50%">
+<img src="/images/hashcat.png" alt="testi" title="testi" width="50%" height="50%">
+<img src="/images/rockyou.png" alt="testi" title="testi" width="50%" height="50%">
+
+
 
 # Työpöydän käyttöönotto
 
