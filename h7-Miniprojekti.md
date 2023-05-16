@@ -120,7 +120,7 @@ Kutsutaan tilaa paikallisesti.
 
 Asennus kestää noin 5 minuuuttia. Jos asennus onnistuu näkymäsi tulisi näyttää tältä:
 
-<img src="/images/kuva104.png" alt="testi" title="testi" width="50%" height="50%">
+<img src="/images/lopputulos.png" alt="testi" title="testi" width="50%" height="50%">
     
 Jotta Microon saadaan teema vaihdettua cmc-16:sta, täytyy ensin luoda polku konfiguraatiotiedostoon, koska sitä ei ole automaattisesti luotu ennen Micron käyttöön ottoa. Sen jälkeen käyttäjän täytyy kopioida <code>/etc/skel/.config/micro.settings.json</code>- tiedosto käyttäjän polkuun <code>~/.config/micro/settings.json</code>
 
@@ -329,7 +329,7 @@ Loin uuden tilan "micro" testatakseni ominaisuutta. Lisäsin YAMLL-koodia, joka 
  
 Ongelmana on, että konfiguraatiot Microon haetaan käyttäjän polusta <code>~/.config/micro</code>, joten muutokset täytyy tallentaa sinne. Tämän automatisoidessa Salt kuitenkin asentaa muutokset "root"-käyttäjälle, eikä henkilökohtaisille käyttäjille. Päädyin ratkaisuun, että käyttäjä itse ajaa terminaalissa komennon <code>sudo mkdir -p ~/.config/micro && sudo cp /etc/skel/.config/micro/settings.json ~/.config/micro/settings.json</code>, joka luo polun konfiguraatiokansioon ja kopioi konfiguraatio tiedosto polusta <code>/etc/skel/.config/micro/settings.json</code>, jonne se konfiguratio oli Saltilla asennettu.
 
-##SSH
+## SSH:n asennus
 
 Lopuksi vielä päätin lisätä SSH-palvelimen ja siihen tarvittavat konfiguraatiot. Halusin konfiguraatiot, jossa estetään suora root kirjautuminen, poistetaan salasanapohjainen tunnistautuminen ja otetaan käyttöön avainpohjainen tunnistautuminen.
 
@@ -383,7 +383,7 @@ Lopuksi kopioin kaikkien yksittäisten tilojen YAML-koodit ja liitin ne yhteen t
 
 Työpöytä asentui onnistuneesti.
 
-<img src="/images/kuva104.png" alt="testi" title="testi" width="70%" height="70%">
+<img src="/images/lopputulos.png" alt="testi" title="testi" width="50%" height="50%">
 
 ## Lähteet
 
