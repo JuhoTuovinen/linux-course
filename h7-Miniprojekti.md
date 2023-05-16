@@ -125,7 +125,7 @@ Jotta Microon saadaan teema vaihdettua cmc-16:sta, täytyy ensin luoda polku kon
  
 Työpöytä on asennettu ja tarvittavat konfiguraatiot tehty.
 
-- John The Ripper sekä rockyou.txt löytyy polusta <code>/usr/local/bin<code>
+- John The Ripper sekä rockyou.txt löytyy polusta <code>/usr/local/bin</code>
 
 
 # Projektin toteutus
