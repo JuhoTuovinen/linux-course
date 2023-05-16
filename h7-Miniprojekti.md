@@ -54,9 +54,9 @@ tools_installation:
       - wireshark
       - micro
       - nmap
-      - firefox
       - git
       - hashcat
+      - firefox
 
 #John The Ripper installation
 /usr/local/bin/john:
