@@ -369,7 +369,7 @@ Ajoi luomani "SSH"-tilan
 
     sudo salt-call --local state.apply ssh
 
-Tila ajettiin onnistuneesti ja muutokset tulivat voimaan.
+Tila ajettiin onnistuneesti ja muutokset tulivat voimaan. Täydellisiä testejä ei ole vielä tehty ovatko konfiguraatiot voimassa.
 
 <img src="/images/ssh.png" alt="testi" title="testi" width="60%" height="60%">
 <img src="/images/sshd.png" alt="testi" title="testi" width="60%" height="60%">
