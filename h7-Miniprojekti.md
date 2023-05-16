@@ -110,9 +110,6 @@ sshd:
 
 <code>ctrl + X</code> + <code>Y</code> + <code>Enter</code> tallettaa tiedoston ja poistuu Nano-tekstieditorista.
 
-Navikoidaan aiemmin luotuun /srv/salt polkuun.
-
-    cd /srv/salt
     
 Kutsutaan tilaa paikallisesti.
     
