@@ -1,7 +1,7 @@
 # Miniprojekti
 
 ## Penetraatiotestaus-työpöytä aloittelijalle
-Miniprojketin tarkoituksena on Saltin avulla asentaa aloittelevan penetraatiotestaajan työpöytä Ubuntu 22.04.2-käyttöjärjestelmälle. Työpöydälle asentuu penetraatiotestauksessa hyödynnettäviä työkaluja sekä muita yleishyödyllisiä työkaluja. 
+Miniprojketin tarkoituksena on Saltin avulla asentaa aloittelevan penetraatiotestaajan työpöytä Ubuntu 22.04.2-käyttöjärjestelmälle. Työpöydälle asentuu penetraatiotestauksessa hyödynnettäviä työkaluja sekä muita yleishyödyllisiä työkaluja ja konfiguraatioita Microon ja SSH:n. 
 
 (HUOM! Tutustuthan työkaluihin ennen niiden käyttöönottoa. Osalla työkaluista voi väärinkäytettynä luoda vahinkoa tai toiminta voi olla laitointa. Älä siis käytä työkaluja muiden verkkoihin tai laitteisiin.)
 
@@ -14,9 +14,13 @@ Asennettavat työkalut:
 - Firefox (verkkoselain)
 - Git (versionhallintajärjestelmä)
 - rockyou.txt (sanalista salasanojen murtamiseen)
+- OpenSSH-server (SSH-palvelin)
 
 Konfiguraatiot:
-- Micro-tekstieditorin teema vaihdetaan värikkäämpään cmc-16:sta
+- Micro: teema vaihdetaan oletusteemast värikkäämpään cmc-16:sta
+- SSH: Estetään suora root-kirjautuminen asettamalla "PermitRootLogin" -arvoksi "no"
+- SSH: Poistetaan salasanapohjainen tunnistautuminen asettamalla "PasswordAuthentication" -arvoksi "no"
+- SSH: Otetaan käyttöön avainpohjainen tunnistautuminen asettamalla "PubkeyAuthentication"-arvoksi "yes"
 
 <img src="/images/nmap.png" alt="testi" title="testi" width="50%" height="50%">
 <img src="/images/wire.png" alt="testi" title="testi" width="50%" height="50%">
@@ -56,6 +60,7 @@ tools_installation:
       - nmap
       - git
       - hashcat
+      - openssh-server
       - firefox
 
 #John The Ripper installation
@@ -89,6 +94,16 @@ john_repo:
     - source: https://raw.githubusercontent.com/JuhoTuovinen/linux-course/main/micro-config/settings.json
     - mode: "0755"
     - skip_verify: True
+    
+#ssh configuration
+/etc/ssh/sshd_config:
+  file.managed:
+    - source: https://raw.githubusercontent.com/JuhoTuovinen/linux-course/main/ssh-config/sshd_config
+    - skip_verify: True
+sshd:
+  service.running:
+    - watch:
+      - file: /etc/ssh/sshd_config
 
     
 ````
@@ -313,6 +328,52 @@ Loin uuden tilan "micro" testatakseni ominaisuutta. Lisäsin YAMLL-koodia, joka 
 - <code>- skip_verify: True</code>ohittaa lähde-URL:n SSL/TLS-sertifikaatin varmennuksen. 
  
 Ongelmana on, että konfiguraatiot Microon haetaan käyttäjän polusta <code>~/.config/micro</code>, joten muutokset täytyy tallentaa sinne. Tämän automatisoidessa Salt kuitenkin asentaa muutokset "root"-käyttäjälle, eikä henkilökohtaisille käyttäjille. Päädyin ratkaisuun, että käyttäjä itse ajaa terminaalissa komennon <code>sudo mkdir -p ~/.config/micro && sudo cp /etc/skel/.config/micro/settings.json ~/.config/micro/settings.json</code>, joka luo polun konfiguraatiokansioon ja kopioi konfiguraatio tiedosto polusta <code>/etc/skel/.config/micro/settings.json</code>, jonne se konfiguratio oli Saltilla asennettu.
+
+##SSH
+
+Lopuksi vielä päätin lisätä SSH-palvelimen ja siihen tarvittavat konfiguraatiot. Halusin konfiguraatiot, jossa estetään suora root kirjautuminen, poistetaan salasanapohjainen tunnistautuminen ja otetaan käyttöön avainpohjainen tunnistautuminen.
+
+Ensin asensin <code>openssh-server</code>:n käsin onnistuneesti.
+
+    sudo apt install openssh-server
+    
+Muutin konfiguraatiotiedostoa polusta <code>/etc/ssh/sshd_config</code>
+
+- <code>PermitRootLogin no</code>
+- <code>PubkeyAuthentication yes</code>
+- <code>PasswordAuthentication no</code>
+
+Latasin tiedoston Githubiin, jotta sen Salt voi ladata sen sieltä käyttäjälle https://github.com/JuhoTuovinen/linux-course/blob/main/ssh-config/sshd_config.
+
+Seuraavaksi lisäsin YAML-koodin automatisoidakseni prosessin. 
+
+
+````
+openssh-server:
+  pkg.installed
+
+/etc/ssh/sshd_config:
+  file.managed:
+    - source: https://raw.githubusercontent.com/JuhoTuovinen/linux-course/main/ssh-config/sshd_config
+    - skip_verify: True
+sshd:
+  service.running:
+    - watch:
+      - file: /etc/ssh/sshd_config
+
+````
+
+Ensin asennetaan SSH. Ladataan konfiguraatio tiedosto Githubista ja varmistaa, että SSH on käynnissä.
+
+Ajoi luomani "SSH"-tilan
+
+    sudo salt-call --local state.apply ssh
+
+Tila ajettiin onnistuneesti ja muutokset tulivat voimaan.
+
+<img src="/images/ssh.png" alt="testi" title="testi" width="60%" height="60%">
+<img src="/images/sshd.png" alt="testi" title="testi" width="60%" height="60%">
+
 
 ## Lopputestaus
 
